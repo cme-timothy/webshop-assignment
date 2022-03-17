@@ -1,4 +1,4 @@
-import "./ProductInfo.css"
+import "./ProductInfo.css";
 
 function ProductInfo() {
   return (

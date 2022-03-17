@@ -1,16 +1,22 @@
 import "./ProductList.css";
+import ProductLink from "./ProductLink";
+import { nanoid } from "nanoid";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
-
+import { useRecoilState } from "recoil";
+import { allProductsState } from "../Recoil/products/atom";
 
 function ProductList() {
+  const [products, setProducts] = useRecoilState(allProductsState);
+
   return (
     <div>
       <Helmet>
         <title>Alla produkter - Tung Store</title>
       </Helmet>
       <h3>Våra klipp</h3>
-      <Link to="/produkt">Produkt</Link>
+      {products.map((data) => {
+        return <ProductLink key={nanoid()} data={data} />;
+      })}
     </div>
   );
 }

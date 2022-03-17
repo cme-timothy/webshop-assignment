@@ -12,7 +12,7 @@ function Main() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/produkter" element={<ProductList />} />
-          <Route path="/produkt" element={<ProductInfo />} />
+        <Route path="/produkt" element={<ProductInfo />} />
         <Route path="/varukorg" element={<Cart />} />
       </Routes>
     </div>
