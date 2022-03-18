@@ -1,15 +1,14 @@
-import "./Header.css";
-import { Link } from "react-router-dom";
+import "./Checkout.css";
 import { useRecoilState } from "recoil";
 import { productsInCart } from "../Recoil/products/atom";
 
-function Header() {
+function Checkout() {
   const [customerCart, setCustomerCart] = useRecoilState(productsInCart);
-  
+
   const allOrders = [];
   allOrders.push(
     customerCart.map((element) => {
-      return parseFloat(element.amount);
+      return parseFloat(element.price * element.amount);
     })
   );
 
@@ -20,12 +19,13 @@ function Header() {
 
   return (
     <div>
-      <h1>Tung Store</h1>
-      <Link to="/">Home</Link>
-      <Link to="/produkter">Produkter</Link>
-      <Link to="/varukorg">{`Varukorg(${sumAllOrders})`}</Link>
+      <h2>Frakt</h2>
+      <h2>0:-</h2>
+      <h2>Summa</h2>
+      <h2>{`${sumAllOrders}:-`}</h2>
+      <button>Till kassan</button>
     </div>
   );
 }
 
-export default Header;
+export default Checkout;

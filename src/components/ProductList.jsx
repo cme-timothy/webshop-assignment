@@ -1,12 +1,12 @@
 import "./ProductList.css";
-import ProductLink from "./ProductLink";
 import { nanoid } from "nanoid";
 import { Helmet } from "react-helmet-async";
-import { useRecoilState } from "recoil";
-import { allProductsState } from "../Recoil/products/atom";
+import { useState } from "react";
+import ProductLink from "./ProductLink";
+import productData from "../data/productData";
 
 function ProductList() {
-  const [products, setProducts] = useRecoilState(allProductsState);
+  const [products, setProducts] = useState(productData);
 
   return (
     <div>
