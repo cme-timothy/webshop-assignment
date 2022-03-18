@@ -37,6 +37,7 @@ function CartList(props) {
       if (element.id === props.data.id) {
         return true;
       }
+      return false;
     });
 
     const newOrder = {
@@ -54,7 +55,6 @@ function CartList(props) {
         return element;
       }
     });
-
     setCart(correctOrder);
   }
 

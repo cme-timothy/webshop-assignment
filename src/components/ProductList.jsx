@@ -6,7 +6,7 @@ import ProductLink from "./ProductLink";
 import productData from "../data/productData";
 
 function ProductList() {
-  const [products, setProducts] = useState(productData);
+  const [products] = useState(productData);
 
   return (
     <div>

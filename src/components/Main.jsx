@@ -9,7 +9,7 @@ import Cart from "./Cart";
 import productData from "../data/productData";
 
 function Main() {
-  const [products, setProducts] = useState(productData);
+  const [products] = useState(productData);
 
   return (
     <div>

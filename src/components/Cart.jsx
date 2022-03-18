@@ -7,7 +7,7 @@ import CartList from "./CartList";
 import Checkout from "./Checkout";
 
 function Cart() {
-  const [customerCart, setCustomerCart] = useRecoilState(productsInCart);
+  const [customerCart] = useRecoilState(productsInCart);
 
   function checkoutOn() {
     if (customerCart.length > 0) return true;

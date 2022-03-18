@@ -4,7 +4,7 @@ import { useRecoilState } from "recoil";
 import { productsInCart } from "../Recoil/products/atom";
 
 function Header() {
-  const [customerCart, setCustomerCart] = useRecoilState(productsInCart);
+  const [customerCart] = useRecoilState(productsInCart);
   
   const allOrders = [];
   allOrders.push(

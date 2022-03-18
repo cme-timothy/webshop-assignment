@@ -5,15 +5,10 @@ import { useState } from "react";
 
 function ProductInfo(props) {
   const [addToCart, setAddToCart] = useRecoilState(productsInCart);
-  const [amount, setAmount] = useState(props.data.amount);
+  const [amount] = useState(props.data.amount);
 
   const objSerialized = JSON.stringify(addToCart);
   localStorage.setItem("userSave", objSerialized);
-
-  function handleChange(event) {
-    const value = event.target.value;
-    setAmount(value);
-  }
 
   function add() {
     if (amount === 0) {
