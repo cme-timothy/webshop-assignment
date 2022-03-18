@@ -10,11 +10,13 @@ function Cart() {
   const [customerCart] = useRecoilState(productsInCart);
 
   function checkoutOn() {
-    if (customerCart.length > 0) return true;
-    else {
+    if (customerCart.length > 0) {
+      return true;
+    } else {
       return false;
     }
   }
+  
   return (
     <div>
       <Helmet>

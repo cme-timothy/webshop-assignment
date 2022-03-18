@@ -4,18 +4,41 @@ import { productsInCart } from "../Recoil/products/atom";
 import { useState } from "react";
 
 function ProductInfo(props) {
-  const [addToCart, setAddToCart] = useRecoilState(productsInCart);
+  const [cart, setCart] = useRecoilState(productsInCart);
   const [amount] = useState(props.data.amount);
 
-  const objSerialized = JSON.stringify(addToCart);
+  const objSerialized = JSON.stringify(cart);
   localStorage.setItem("userSave", objSerialized);
+
+  const newOrderIndex = cart.findIndex((element) => {
+    if (element.id === props.data.id) {
+      return true;
+    }
+    return false;
+  });
+
+  const correctOrder = cart.map((element, index) => {
+    if (index === newOrderIndex) {
+      return element;
+    } else {
+      return { empty: true };
+    }
+  });
+
+  function changeAmount() {
+    if (correctOrder[newOrderIndex]?.amount) {
+      return correctOrder[newOrderIndex].amount;
+    } else {
+      return 1;
+    }
+  }
 
   function add() {
     if (amount === 0) {
-      const filteredCart = [...addToCart].filter(
+      const filteredCart = [...cart].filter(
         (product) => product.id !== props.data.id
       );
-      setAddToCart(() => {
+      setCart(() => {
         return [
           ...filteredCart,
           {
@@ -23,10 +46,18 @@ function ProductInfo(props) {
             name: props.data.name,
             price: props.data.price,
             pic: props.data.pic,
-            amount: 1,
+            amount: changeAmount(),
           },
         ];
       });
+    }
+  }
+
+  function orderdToggle() {
+    if (correctOrder[newOrderIndex]?.amount) {
+      return true;
+    } else {
+      return false;
     }
   }
 
@@ -36,7 +67,9 @@ function ProductInfo(props) {
       <h2>{props.data.name}</h2>
       <p>{props.data.description}</p>
       <p>{props.data.price} kr</p>
-      <button onClick={add}>Lägg i varukorgen</button>
+      <button onClick={add}>
+        {orderdToggle() ? "Gå till varukorgen" : "Lägg i varukorgen"}
+      </button>
     </div>
   );
 }
