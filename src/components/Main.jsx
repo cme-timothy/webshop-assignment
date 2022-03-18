@@ -19,7 +19,7 @@ function Main() {
         {products.map((data) => {
           return (
             <Route
-              path={`/produker/${data.id}`}
+              path={`/produkter/${data.id}`}
               key={nanoid()}
               element={<ProductInfo data={data} />}
             />

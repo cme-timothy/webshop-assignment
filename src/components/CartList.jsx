@@ -61,7 +61,7 @@ function CartList(props) {
   return (
     <div>
       <img src={props.data.pic} alt="" />
-      <Link to={`/produker/${props.data.id}`}>{props.data.name}</Link>
+      <Link to={`/produkter/${props.data.id}`}>{props.data.name}</Link>
       <h2>{props.data.price}:-</h2>
       <button
         onClick={() => {
