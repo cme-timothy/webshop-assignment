@@ -12,7 +12,7 @@ function Main() {
   const [products] = useState(productData);
 
   return (
-    <div>
+    <div className="main">
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/produkter" element={<ProductList />} />

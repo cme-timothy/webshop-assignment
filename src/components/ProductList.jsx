@@ -9,14 +9,16 @@ function ProductList() {
   const [products] = useState(productData);
 
   return (
-    <div>
+    <div className="h3-wrapper">
       <Helmet>
         <title>Alla produkter - Tung Store</title>
       </Helmet>
       <h3>Våra klipp</h3>
-      {products.map((data) => {
-        return <ProductLink key={nanoid()} data={data} />;
-      })}
+      <div className="product-list-wrapper">
+        {products.map((data) => {
+          return <ProductLink key={nanoid()} data={data} />;
+        })}
+      </div>
     </div>
   );
 }

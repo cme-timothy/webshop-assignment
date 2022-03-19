@@ -1,0 +1,14 @@
+.product-img {
+    width: 60%;
+}
+
+.product-name,
+.product-price {
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.product-description {
+    text-align: left;
+}

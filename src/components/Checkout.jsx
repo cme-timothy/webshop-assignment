@@ -18,7 +18,7 @@ function Checkout() {
   );
 
   return (
-    <div>
+    <div className="checkout-wrapper">
       <h2>Frakt</h2>
       <h2>0:-</h2>
       <h2>Summa</h2>

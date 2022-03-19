@@ -59,9 +59,9 @@ function CartList(props) {
   }
 
   return (
-    <div>
-      <img src={props.data.pic} alt="" />
-      <Link to={`/produkter/${props.data.id}`}>{props.data.name}</Link>
+    <div className="cart-list-wrapper">
+      <img className="product-img" src={props.data.pic} alt="" />
+      <Link className="product-name" to={`/produkter/${props.data.id}`}>{props.data.name}</Link>
       <h2>{props.data.price}:-</h2>
       <button
         onClick={() => {

@@ -16,17 +16,19 @@ function Cart() {
       return false;
     }
   }
-  
+
   return (
     <div>
       <Helmet>
         <title>Din varukorg - Tung Store</title>
       </Helmet>
       <h3>Varukorg</h3>
-      {customerCart.map((data) => {
-        return <CartList key={nanoid()} data={data} />;
-      })}
-      {checkoutOn() ? <Checkout /> : <p>Det finns inget i varukorgen</p>}
+      <div>
+        {customerCart.map((data) => {
+          return <CartList key={nanoid()} data={data} />;
+        })}
+        {checkoutOn() ? <Checkout /> : <p>Det finns inget i varukorgen</p>}
+      </div>
     </div>
   );
 }

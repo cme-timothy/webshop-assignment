@@ -4,7 +4,7 @@ import "./Home.css";
 
 function Home() {
   return (
-    <div>
+    <div className="home">
       <Helmet>
         <title>Den bästa affären för allt - Tung Store</title>
       </Helmet>
