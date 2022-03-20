@@ -22,8 +22,8 @@ function Cart() {
       <Helmet>
         <title>Din varukorg - Tung Store</title>
       </Helmet>
-      <h3>Varukorg</h3>
-      <div>
+      <h3 className="cart-title">Varukorg</h3>
+      <div className="cart-wrapper">
         {customerCart.map((data) => {
           return <CartList key={nanoid()} data={data} />;
         })}

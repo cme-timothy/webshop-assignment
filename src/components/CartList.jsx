@@ -60,9 +60,9 @@ function CartList(props) {
 
   return (
     <div className="cart-list-wrapper">
-      <img className="product-img" src={props.data.pic} alt="" />
-      <Link className="product-name" to={`/produkter/${props.data.id}`}>{props.data.name}</Link>
-      <h2>{props.data.price}:-</h2>
+      <img className="product-cart-img" src={props.data.pic} alt="" />
+      <Link className="product-cart-name" to={`/produkter/${props.data.id}`}>{props.data.name}</Link>
+      <p className="product-cart-price">{props.data.price}:-</p>
       <button
         onClick={() => {
           add(false);
@@ -71,6 +71,7 @@ function CartList(props) {
         -
       </button>
       <input
+        className="product-cart-amount"
         type="number"
         min="1"
         max="99"
@@ -85,7 +86,7 @@ function CartList(props) {
       >
         +
       </button>
-      <button onClick={handleClick}>Ta bort produkt</button>
+      <button className="delete-product" onClick={handleClick}>Ta bort produkt</button>
     </div>
   );
 }
