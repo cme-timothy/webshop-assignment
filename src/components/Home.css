@@ -1,0 +1,31 @@
+.store-info {
+    background-color: black;
+    max-width: 30em;
+    color: #00ff41;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+    text-align: left;
+}
+
+.link-to-product-page {
+    display: block;
+    color: #00ff41;
+}
+
+.link-to-product-page:hover {
+    color: orange;
+}
+
+.smileyface {
+    font-size: 50px;
+    display: inline;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0.2em;
+}
+
+.product-info-end {
+    display: flex;
+    align-items: center;
+}
