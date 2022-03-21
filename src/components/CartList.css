@@ -3,7 +3,7 @@
   width: 10%;
 }
 .cart-list-button {
-  width: 23px
+  width: 23px;
 }
 
 .product-cart-name,
@@ -51,6 +51,16 @@
   margin-bottom: 10px;
   box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
     rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 @media (max-width: 496px) {
