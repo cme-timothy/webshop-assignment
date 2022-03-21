@@ -8,8 +8,11 @@
   right: 0;
   z-index: 1;
   height: 5em;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   font-family: "Courier New", Courier, monospace;
+  color: #00ff41;
+  background-color: black;
 }
 
 #h1 {
@@ -18,12 +21,44 @@
   margin-bottom: 0px;
 }
 
-.main-menu {
+#mainMenu {
   margin-right: 1rem;
 }
 
 .link {
   margin-right: 0.75rem;
-  color: black;
+  color: #00ff41;
   text-decoration: none;
+}
+
+#hamburgerMenu {
+  display: none;
+  width: 36px;
+  margin-right: 1rem;
+}
+
+/* for wider displays */
+@media (max-width: 694px) {
+  #mainMenu {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    left: 0;
+    background-color: black;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    margin-right: 0;
+  }
+
+  .link {
+    margin-left: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  #hamburgerMenu {
+    display: block;
+  }
 }
