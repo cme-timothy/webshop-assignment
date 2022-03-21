@@ -2,6 +2,8 @@ import "./ProductInfo.css";
 import { useRecoilState } from "recoil";
 import { productsInCart } from "../Recoil/products/atom";
 import { useState } from "react";
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 function ProductInfo(props) {
   const [cart, setCart] = useRecoilState(productsInCart);
@@ -63,12 +65,19 @@ function ProductInfo(props) {
 
   return (
     <div className="product-info-wrapper">
+      <Helmet>
+        <title>{props.data.name} - Tung Store</title>
+      </Helmet>
       <img className="product-img" src={props.data.pic} alt="" />
       <h2>{props.data.name}</h2>
       <p className="product-description">{props.data.description}</p>
       <p className="product-price">{props.data.price} kr</p>
       <button onClick={add}>
-        {orderdToggle() ? "Gå till varukorgen" : "Lägg i varukorgen"}
+        {orderdToggle() ? (
+          <Link className="go-to-cart" to="/varukorg">Gå till varukorgen</Link>
+        ) : (
+          "Lägg i varukorgen"
+        )}
       </button>
     </div>
   );

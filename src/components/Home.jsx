@@ -1,14 +1,19 @@
+import "./Home.css";
 import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
-import "./Home.css";
+import { useState } from "react";
+import productData from "../data/productData";
 
 function Home() {
+  const [products] = useState(productData);
+
   return (
-    <div className="home">
+    <div>
       <Helmet>
-        <title>Den bästa affären för allt - Tung Store</title>
+        <title>Den bästa affären för nya datorer - Tung Store</title>
       </Helmet>
       <h2>Välkommen till Tung Store</h2>
+      <img className="home-img" src={products[0].pic} alt="En bild på en dator" />
       <p className="store-info">
         Lorem ipsum dolor sit amet consectetur adipiscing elit vel venenatis
         condimentum auctor pulvinar sed justo, gravida malesuada aliquet ac id

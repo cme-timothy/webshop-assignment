@@ -27,3 +27,8 @@ h2,
     margin-bottom: 50px;
     max-width: 50em;
 }
+
+.go-to-cart {
+    text-decoration: none;
+    color: black;
+}

@@ -9,9 +9,9 @@ function ProductList() {
   const [products] = useState(productData);
 
   return (
-    <div className="h3-wrapper">
+    <div>
       <Helmet>
-        <title>Alla produkter - Tung Store</title>
+        <title>Alla våra produkter - Tung Store</title>
       </Helmet>
       <h3>Våra klipp</h3>
       <div className="product-list-wrapper">
