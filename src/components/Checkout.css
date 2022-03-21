@@ -1,18 +1,28 @@
 .checkout-wrapper {
-    display: flex;
-    flex-direction: column;
-    padding-left: 3em;
-    padding-right: 3em;
-    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 3em;
+  padding-right: 3em;
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+    rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
 }
 
 .sub-total-wrapper {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .checkout-button {
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2em;
+}
+
+@media (max-width: 496px) {
+  .sub-total-wrapper {
+    justify-content: center;
+  }
+  .sub-total {
+      margin-left: 0.5em;
+  }
 }

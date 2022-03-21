@@ -10,9 +10,13 @@
   height: 5em;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
     rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-  font-family: "Courier New", Courier, monospace;
   color: #00ff41;
   background-color: black;
+}
+
+.webshop-logo-link {
+  text-decoration: none;
+  color: #00ff41;
 }
 
 #h1 {
@@ -37,8 +41,11 @@
   margin-right: 1rem;
 }
 
-/* for wider displays */
 @media (max-width: 694px) {
+  #header {
+    box-shadow: none;
+  }
+
   .main-menu {
     display: none;
   }
@@ -52,9 +59,8 @@
     right: 0;
     left: 0;
     background-color: black;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
-    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
     margin-right: 0;
+    padding-bottom: 0.2em;
   }
 
   .link {

@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 function ProductLink(props) {
   return (
     <div className="product-wrapper">
-      <img className="product-img" src={props.data.pic} alt="" />
-      <div>
-        <Link className="product-name" to={`/produkter/${props.data.id}`}>
-          {props.data.name}
-        </Link>
-        <p className="product-price">{props.data.price} kr</p>
-      </div>
+      <Link className="product-link-wrapper" to={`/produkter/${props.data.id}`}>
+        <img className="product-img" src={props.data.pic} alt="" />
+        <div>
+          <p className="product-name">{props.data.name}</p>
+          <p className="product-price">{props.data.price} kr</p>
+        </div>
+      </Link>
     </div>
   );
 }

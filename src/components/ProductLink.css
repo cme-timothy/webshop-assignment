@@ -6,7 +6,15 @@
 .product-price {
     display: block;
     text-decoration: none;
-    color: black;
+    color: #008f11
+}
+
+.product-link-wrapper {
+    text-decoration: none;
+}
+
+.product-name:hover {
+    text-decoration: underline;
 }
 
 .product-wrapper {

@@ -11,6 +11,9 @@ h2,
 
 .product-description {
     text-align: left;
+    background-color: black;
+    color: #00ff41;
+    padding: 1em;
 }
 
 .product-info-wrapper {

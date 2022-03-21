@@ -43,14 +43,6 @@ function Header() {
     }
   }
 
-  useEffect(() => {
-    if (hamburgerMenuToggle === true) {
-      setMainMenuVisible("mainMenu main-menu-visible");
-    } else if (hamburgerMenuToggle === false) {
-      setMainMenuVisible("main-menu");
-    }
-  });
-
   function handleClick() {
     sethamburgerMenuToggle(!hamburgerMenuToggle);
   }
@@ -59,9 +51,19 @@ function Header() {
     sethamburgerMenuToggle(false);
   }
 
+  useEffect(() => {
+    if (hamburgerMenuToggle === true) {
+      setMainMenuVisible("mainMenu main-menu-visible");
+    } else if (hamburgerMenuToggle === false) {
+      setMainMenuVisible("main-menu");
+    }
+  });
+
   return (
     <div id="header">
-      <h1 id="h1">$Tung-Store</h1>
+      <Link className="webshop-logo-link" onClick={handleLinkClick} to="/">
+        <h1 id="h1">$Tung-Store</h1>
+      </Link>
       <div id="mainMenu" className={mainMenuVisible}>
         <Link className="link" onClick={handleLinkClick} to="/">
           /Home

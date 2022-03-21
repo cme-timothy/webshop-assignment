@@ -61,32 +61,40 @@ function CartList(props) {
   return (
     <div className="cart-list-wrapper">
       <img className="product-cart-img" src={props.data.pic} alt="" />
-      <Link className="product-cart-name" to={`/produkter/${props.data.id}`}>{props.data.name}</Link>
+      <Link className="product-cart-name" to={`/produkter/${props.data.id}`}>
+        {props.data.name}
+      </Link>
       <p className="product-cart-price">{props.data.price}:-</p>
-      <button
-        onClick={() => {
-          add(false);
-        }}
-      >
-        -
-      </button>
-      <input
-        className="product-cart-amount"
-        type="number"
-        min="1"
-        max="99"
-        readOnly
-        value={count}
-        onChange={handleChange}
-      ></input>
-      <button
-        onClick={() => {
-          add(true);
-        }}
-      >
-        +
-      </button>
-      <button className="delete-product" onClick={handleClick}>Ta bort produkt</button>
+      <div className="add-remove-wrapper">
+        <button
+          className="cart-list-button"
+          onClick={() => {
+            add(false);
+          }}
+        >
+          -
+        </button>
+        <input
+          className="product-cart-amount"
+          type="number"
+          min="1"
+          max="99"
+          readOnly
+          value={count}
+          onChange={handleChange}
+        ></input>
+        <button
+          className="cart-list-button"
+          onClick={() => {
+            add(true);
+          }}
+        >
+          +
+        </button>
+        <button className="delete-product" onClick={handleClick}>
+          Ta bort produkt
+        </button>
+      </div>
     </div>
   );
 }
