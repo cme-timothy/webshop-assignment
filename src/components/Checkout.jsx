@@ -19,11 +19,12 @@ function Checkout() {
 
   return (
     <div className="checkout-wrapper">
-      <h2>Frakt</h2>
-      <h2>0:-</h2>
-      <h2>Summa</h2>
-      <h2>{`${sumAllOrders}:-`}</h2>
-      <button>Till kassan</button>
+      <div className="sub-total-wrapper">
+        <h2 className="sub-total-title">Summa</h2>
+        <h2 className="sub-total">{`${sumAllOrders}:-`}</h2>
+      </div>
+      <h2 className="shipping">Alltid fri frakt!</h2>
+      <button className="checkout-button">Till kassan</button>
     </div>
   );
 }

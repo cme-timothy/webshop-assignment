@@ -8,6 +8,7 @@ import hamburgerMenuImg from "../assets/hamburger_menu/hamburger_menu_green.png"
 function Header() {
   const [customerCart] = useRecoilState(productsInCart);
   const [hamburgerMenuToggle, sethamburgerMenuToggle] = useState(false);
+  const [mainMenuVisible, setMainMenuVisible] = useState("main-menu");
 
   const allOrders = [];
   allOrders.push(
@@ -44,9 +45,9 @@ function Header() {
 
   useEffect(() => {
     if (hamburgerMenuToggle === true) {
-      document.getElementById("mainMenu").style.display = "flex";
-    } else {
-      document.getElementById("mainMenu").style.display = "none";
+      setMainMenuVisible("mainMenu main-menu-visible");
+    } else if (hamburgerMenuToggle === false) {
+      setMainMenuVisible("main-menu");
     }
   });
 
@@ -54,19 +55,23 @@ function Header() {
     sethamburgerMenuToggle(!hamburgerMenuToggle);
   }
 
+  function handleLinkClick() {
+    sethamburgerMenuToggle(false);
+  }
+
   return (
     <div id="header">
       <h1 id="h1">$Tung-Store</h1>
-      <div id="mainMenu">
-        <Link className="link" onClick={handleClick} to="/">
+      <div id="mainMenu" className={mainMenuVisible}>
+        <Link className="link" onClick={handleLinkClick} to="/">
           /Home
         </Link>
-        <Link className="link" onClick={handleClick} to="/produkter">
+        <Link className="link" onClick={handleLinkClick} to="/produkter">
           /Produkter
         </Link>
         <Link
           className="link"
-          onClick={handleClick}
+          onClick={handleLinkClick}
           to="/varukorg"
         >{`/Varukorg(${sumAllOrders})`}</Link>
       </div>

@@ -21,7 +21,7 @@
   margin-bottom: 0px;
 }
 
-#mainMenu {
+.main-menu {
   margin-right: 1rem;
 }
 
@@ -39,8 +39,12 @@
 
 /* for wider displays */
 @media (max-width: 694px) {
-  #mainMenu {
+  .main-menu {
     display: none;
+  }
+
+  .main-menu-visible {
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     position: absolute;
