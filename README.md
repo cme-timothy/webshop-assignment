@@ -8,7 +8,7 @@ Logic:
 change key{nanoid()} to data.id
 
 Styling:
-create a design
+better design
 
 ## Pre-requisites
 
