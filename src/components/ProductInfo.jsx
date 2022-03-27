@@ -65,7 +65,7 @@ function ProductInfo(props) {
       <img src={props.data.pic} alt="" />
       <h2>{props.data.title}</h2>
       <p>{props.data.description}</p>
-      <p>{props.data.price} kr</p>
+      <p>{props.data.price} €</p>
       <button onClick={add}>
         {orderdToggle() ? "Gå till varukorgen" : "Lägg i varukorgen"}
       </button>

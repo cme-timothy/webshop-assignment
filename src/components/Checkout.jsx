@@ -16,12 +16,14 @@ function Checkout() {
     0
   );
 
+  const twoDecimals = +sumAllOrders.toFixed(2);
+
   return (
     <div>
       <h2>Frakt</h2>
       <h2>0 €</h2>
       <h2>Summa</h2>
-      <h2>{`${sumAllOrders} €`}</h2>
+      <h2>{`${twoDecimals} €`}</h2>
       <button>Till kassan</button>
     </div>
   );

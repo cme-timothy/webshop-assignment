@@ -61,7 +61,7 @@ function CartList(props) {
     <div>
       <img src={props.data.pic} alt="" />
       <Link to={`/produkter/${props.data.id}`}>{props.data.title}</Link>
-      <h2>{props.data.price}:-</h2>
+      <h2>{props.data.price} €</h2>
       <button
         onClick={() => {
           add(false);
