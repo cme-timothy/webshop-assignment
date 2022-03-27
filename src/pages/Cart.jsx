@@ -1,10 +1,9 @@
-import "./Cart.css";
 import { Helmet } from "react-helmet-async";
 import { nanoid } from "nanoid";
 import { useRecoilState } from "recoil";
-import { productsInCart } from "../Recoil/products/atom";
-import CartList from "./CartList";
-import Checkout from "./Checkout";
+import { productsInCart } from "../recoil/cart/atom";
+import CartList from "../components/CartList";
+import Checkout from "../components/Checkout";
 
 function Cart() {
   const [customerCart] = useRecoilState(productsInCart);

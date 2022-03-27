@@ -1,22 +1,22 @@
-import "./Main.css";
 import { Routes, Route } from "react-router-dom";
 import { nanoid } from "nanoid";
-import { useState } from "react";
-import Home from "./Home";
-import ProductList from "./ProductList";
+import Home from "../pages/Home";
+import ProductList from "../pages/ProductList";
 import ProductInfo from "./ProductInfo";
-import Cart from "./Cart";
-import productData from "../data/productData";
+import Cart from "../pages/Cart";
+import { products } from "../recoil/products/atom";
+import { useRecoilState } from "recoil";
+
 
 function Main() {
-  const [products] = useState(productData);
+  const [productsList, setProductsList] = useRecoilState(products);
 
   return (
     <div>
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/produkter" element={<ProductList />} />
-        {products.map((data) => {
+        {productsList.map((data) => {
           return (
             <Route
               path={`/produkter/${data.id}`}

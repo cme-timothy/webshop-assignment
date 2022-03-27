@@ -1,11 +1,10 @@
-import "./ProductInfo.css";
 import { useRecoilState } from "recoil";
-import { productsInCart } from "../Recoil/products/atom";
+import { productsInCart } from "../recoil/cart/atom";
 import { useState } from "react";
 
 function ProductInfo(props) {
   const [cart, setCart] = useRecoilState(productsInCart);
-  const [amount] = useState(props.data.amount);
+  const [amount] = useState(0);
 
   const objSerialized = JSON.stringify(cart);
   localStorage.setItem("userSave", objSerialized);
@@ -43,7 +42,7 @@ function ProductInfo(props) {
           ...filteredCart,
           {
             id: props.data.id,
-            name: props.data.name,
+            title: props.data.title,
             price: props.data.price,
             pic: props.data.pic,
             amount: changeAmount(),
@@ -64,7 +63,7 @@ function ProductInfo(props) {
   return (
     <div>
       <img src={props.data.pic} alt="" />
-      <h2>{props.data.name}</h2>
+      <h2>{props.data.title}</h2>
       <p>{props.data.description}</p>
       <p>{props.data.price} kr</p>
       <button onClick={add}>

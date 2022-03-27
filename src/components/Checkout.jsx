@@ -1,6 +1,5 @@
-import "./Checkout.css";
 import { useRecoilState } from "recoil";
-import { productsInCart } from "../Recoil/products/atom";
+import { productsInCart } from "../recoil/cart/atom";
 
 function Checkout() {
   const [customerCart] = useRecoilState(productsInCart);
@@ -20,9 +19,9 @@ function Checkout() {
   return (
     <div>
       <h2>Frakt</h2>
-      <h2>0:-</h2>
+      <h2>0 €</h2>
       <h2>Summa</h2>
-      <h2>{`${sumAllOrders}:-`}</h2>
+      <h2>{`${sumAllOrders} €`}</h2>
       <button>Till kassan</button>
     </div>
   );

@@ -1,7 +1,6 @@
-import "./CartList.css";
 import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { productsInCart } from "../Recoil/products/atom";
+import { productsInCart } from "../recoil/cart/atom";
 import { useState } from "react";
 
 function CartList(props) {
@@ -42,7 +41,7 @@ function CartList(props) {
 
     const newOrder = {
       id: props.data.id,
-      name: props.data.name,
+      title: props.data.title,
       price: props.data.price,
       pic: props.data.pic,
       amount: count + addSubToggle,
@@ -61,7 +60,7 @@ function CartList(props) {
   return (
     <div>
       <img src={props.data.pic} alt="" />
-      <Link to={`/produkter/${props.data.id}`}>{props.data.name}</Link>
+      <Link to={`/produkter/${props.data.id}`}>{props.data.title}</Link>
       <h2>{props.data.price}:-</h2>
       <button
         onClick={() => {

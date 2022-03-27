@@ -1,7 +1,6 @@
-import "./Header.css";
 import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { productsInCart } from "../Recoil/products/atom";
+import { productsInCart } from "../recoil/cart/atom";
 
 function Header() {
   const [customerCart] = useRecoilState(productsInCart);
