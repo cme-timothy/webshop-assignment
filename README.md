@@ -1,6 +1,6 @@
 # Webshop assignment i react
 
-This is a simple webshop built for for my assignment. This project was built with [React](https://reactjs.org/) and used [Create React App](https://create-react-app.dev/) as its starting template.
+This is a simple webshop built for for my last react assignment. This project was built with [React](https://reactjs.org/) and used [Create React App](https://create-react-app.dev/) as its starting template. This is a branched of version of my previous assignment.
 
 # Things to do
 
