@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import { nanoid } from "nanoid";
 import Home from "../pages/Home";
 import ProductList from "../pages/ProductList";
 import ProductInfo from "./ProductInfo";
@@ -9,7 +8,7 @@ import { useRecoilState } from "recoil";
 
 
 function Main() {
-  const [productsList, setProductsList] = useRecoilState(products);
+  const [productsList] = useRecoilState(products);
 
   return (
     <div>
@@ -20,7 +19,7 @@ function Main() {
           return (
             <Route
               path={`/produkter/${data.id}`}
-              key={nanoid()}
+              key={data.id}
               element={<ProductInfo data={data} />}
             />
           );

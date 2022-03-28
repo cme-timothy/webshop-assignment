@@ -1,4 +1,3 @@
-import { nanoid } from "nanoid";
 import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
 import ProductLink from "../components/ProductLink";
@@ -15,7 +14,7 @@ function ProductList() {
       setProductsList(response.data);
     }
     allProducts();
-  }, []);
+  });
 
   return (
     <div>
@@ -24,7 +23,7 @@ function ProductList() {
       </Helmet>
       <h3>Våra klipp</h3>
       {productsList.map((data) => {
-        return <ProductLink key={nanoid()} data={data} />;
+        return <ProductLink key={data.id} data={data} />;
       })}
     </div>
   );

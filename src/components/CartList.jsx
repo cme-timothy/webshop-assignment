@@ -47,6 +47,8 @@ function CartList(props) {
       amount: count + addSubToggle,
     };
 
+    setCount(newOrder.amount);
+
     const correctOrder = cart.map((element, index) => {
       if (index === newOrderIndex) {
         return newOrder;

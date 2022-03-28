@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import { nanoid } from "nanoid";
 import { useRecoilState } from "recoil";
 import { productsInCart } from "../recoil/cart/atom";
 import CartList from "../components/CartList";
@@ -23,7 +22,7 @@ function Cart() {
       </Helmet>
       <h3>Varukorg</h3>
       {customerCart.map((data) => {
-        return <CartList key={nanoid()} data={data} />;
+        return <CartList key={data.id} data={data} />;
       })}
       {checkoutOn() ? <Checkout /> : <p>Det finns inget i varukorgen</p>}
     </div>
