@@ -5,7 +5,7 @@ This is a simple webshop built for for my last react assignment. This project wa
 # Things to do
 
 Logic:
-change key{nanoid()} to data.id
+
 
 Styling:
 create a design
