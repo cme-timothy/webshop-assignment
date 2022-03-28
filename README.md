@@ -5,7 +5,6 @@ This is a simple webshop built for for my assignment. This project was built wit
 # Things to do
 
 Logic:
-change key{nanoid()} to data.id
 
 Styling:
 better design
