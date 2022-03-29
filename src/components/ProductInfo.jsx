@@ -2,6 +2,7 @@ import { useRecoilState } from "recoil";
 import { productsInCart } from "../recoil/cart/atom";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 function ProductInfo() {
@@ -9,11 +10,12 @@ function ProductInfo() {
   const [amount] = useState(0);
   const [product, setProduct] = useState([]);
   const params = useParams();
+  
 
   useEffect(() => {
     async function getProduct() {
       const response = await axios.get(
-        `https://k4backend.osuka.dev/products/${params.id}`
+        `https://k4backend.osuka.dev/products/${params.productId}`
       );
       setProduct(response.data);
     }
@@ -84,7 +86,13 @@ function ProductInfo() {
       <p>{product.description}</p>
       <p>{product.price} €</p>
       <button onClick={add}>
-        {orderdToggle() ? "Gå till varukorgen" : "Lägg i varukorgen"}
+        {orderdToggle() ? (
+          <Link to="/varukorg">
+            Gå till varukorgen
+          </Link>
+        ) : (
+          "Lägg i varukorgen"
+        )}
       </button>
     </div>
   );

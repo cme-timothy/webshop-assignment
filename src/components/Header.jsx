@@ -22,6 +22,8 @@ function Header() {
       <h1>Tung Store</h1>
       <Link to="/">Home</Link>
       <Link to="/produkter">Produkter</Link>
+      <Link to="/login">Logga in</Link>
+      <Link to="/skapakonto">Skapa konto</Link>
       <Link to="/varukorg">{`Varukorg(${sumAllOrders})`}</Link>
     </div>
   );
