@@ -1,8 +1,8 @@
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import { productsInCart } from "../recoil/cart/atom";
 
 function Checkout() {
-  const [customerCart] = useRecoilState(productsInCart);
+  const customerCart = useRecoilValue(productsInCart);
 
   const allOrders = [];
   allOrders.push(

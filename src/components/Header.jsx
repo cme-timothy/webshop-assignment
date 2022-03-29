@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import { productsInCart } from "../recoil/cart/atom";
 import { auth } from "../recoil/auth/atom";
 import { userData } from "../recoil/userData/atom";
 
 function Header() {
-  const [customerCart] = useRecoilState(productsInCart);
+  const customerCart = useRecoilValue(productsInCart);
   const [loggedIn, setLoggedIn] = useState(false);
-  const [token, setToken] = useRecoilState(auth);
-  const [data, setData] = useRecoilState(userData);
+  const token = useRecoilValue(auth);
+  const data = useRecoilValue(userData);
   const [adminLink, setAdminLink] = useState(false);
 
   const allOrders = [];

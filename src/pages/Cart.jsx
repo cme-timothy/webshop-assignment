@@ -1,11 +1,11 @@
 import { Helmet } from "react-helmet-async";
-import { useRecoilState } from "recoil";
+import { useRecoilValue } from "recoil";
 import { productsInCart } from "../recoil/cart/atom";
 import CartList from "../components/CartList";
 import Checkout from "../components/Checkout";
 
 function Cart() {
-  const [customerCart] = useRecoilState(productsInCart);
+  const customerCart = useRecoilValue(productsInCart);
 
   function checkoutOn() {
     if (customerCart.length > 0) {

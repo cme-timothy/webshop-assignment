@@ -14,12 +14,12 @@ function MyProfile() {
     if (token.length === 0) {
       navigate("/login");
     }
-  }, [token]);
+  }, [token, navigate]);
 
   function logOut() {
     setToken([]);
-    navigate("/login");
     setData([]);
+    navigate("/login");
   }
 
   console.log(data);

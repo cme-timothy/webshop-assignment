@@ -2,19 +2,19 @@ import axios from "axios";
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { auth } from "../recoil/auth/atom";
 import { userData } from "../recoil/userData/atom";
 
 function LogIn() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useRecoilState(auth);
-  const [data, setData] = useRecoilState(userData);
+  const setToken = useSetRecoilState(auth);
+  const setData = useSetRecoilState(userData);
   const [logInFailed, setLogInFailed] = useState(false);
   const navigate = useNavigate();
 
-  async function handleClick() {
+  async function authenticate() {
     setLogInFailed(false);
     const response = await axios
       .post("https://k4backend.osuka.dev/auth/login", {
@@ -29,7 +29,7 @@ function LogIn() {
 
     if (response !== undefined) {
       setToken(response.data);
-      async function getRole() {
+      async function getData() {
         const dataResponse = await axios.get(
           `https://k4backend.osuka.dev/users/${response.data.userId}`
         );
@@ -40,7 +40,7 @@ function LogIn() {
           navigate("/minprofil");
         }
       }
-      getRole();
+      getData();
     }
   }
 
@@ -52,6 +52,12 @@ function LogIn() {
   function handlePassword(event) {
     const value = event.target.value;
     setPassword(value);
+  }
+
+  function handleKeyDown(event) {
+    if (event.key === "Enter") {
+      authenticate();
+    }
   }
 
   return (
@@ -66,14 +72,16 @@ function LogIn() {
           type="text"
           value={userName}
           onChange={handleUserName}
+          onKeyDown={handleKeyDown}
         />
         <input
           name="password"
           type="password"
           value={password}
           onChange={handlePassword}
+          onKeyDown={handleKeyDown}
         />
-        <button type="submit" onClick={handleClick}>
+        <button type="submit" onClick={authenticate}>
           Logga in
         </button>
         {logInFailed ? (

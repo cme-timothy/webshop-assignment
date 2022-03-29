@@ -21,7 +21,7 @@ function ProductInfo() {
     }
     getProduct();
     return () => console.log("cleanup");
-  }, []);
+  }, [params.productId]);
 
   if (product.length === 0) return <h3>Loading...</h3>;
 

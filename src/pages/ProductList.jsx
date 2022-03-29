@@ -15,7 +15,7 @@ function ProductList() {
     }
     allProducts();
     return () => console.log("cleanup");
-  }, []);
+  }, [setProductsList]);
 
   if (productsList.length === 0) return <h3>Loading...</h3>;
 
