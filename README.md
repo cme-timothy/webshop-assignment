@@ -5,10 +5,18 @@ This is a simple webshop built for for my last react assignment. This project wa
 # Things to do
 
 Logic:
+add: login, register, user profile and admin page
+authenticate user
+token based log in
+learn xss attacks
+useNavigate hook log in redirect
 
+Logic extra:
+error handling
 
 Styling:
-create a design
+choose one design style
+design shop
 
 ## Pre-requisites
 

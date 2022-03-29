@@ -1,16 +1,33 @@
 import { useRecoilState } from "recoil";
 import { productsInCart } from "../recoil/cart/atom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
-function ProductInfo(props) {
+function ProductInfo() {
   const [cart, setCart] = useRecoilState(productsInCart);
   const [amount] = useState(0);
+  const [product, setProduct] = useState([]);
+  const params = useParams();
+
+  useEffect(() => {
+    async function getProduct() {
+      const response = await axios.get(
+        `https://k4backend.osuka.dev/products/${params.id}`
+      );
+      setProduct(response.data);
+    }
+    getProduct();
+    return () => console.log("cleanup");
+  }, []);
+
+  if (product.length === 0) return <h3>Loading...</h3>;
 
   const objSerialized = JSON.stringify(cart);
   localStorage.setItem("userSave", objSerialized);
 
   const newOrderIndex = cart.findIndex((element) => {
-    if (element.id === props.data.id) {
+    if (element.id === product.id) {
       return true;
     }
     return false;
@@ -35,16 +52,16 @@ function ProductInfo(props) {
   function add() {
     if (amount === 0) {
       const filteredCart = [...cart].filter(
-        (product) => product.id !== props.data.id
+        (thisProduct) => thisProduct.id !== product.id
       );
       setCart(() => {
         return [
           ...filteredCart,
           {
-            id: props.data.id,
-            title: props.data.title,
-            price: props.data.price,
-            pic: props.data.pic,
+            id: product.id,
+            title: product.title,
+            price: product.price,
+            image: product.image,
             amount: changeAmount(),
           },
         ];
@@ -62,10 +79,10 @@ function ProductInfo(props) {
 
   return (
     <div>
-      <img src={props.data.pic} alt="" />
-      <h2>{props.data.title}</h2>
-      <p>{props.data.description}</p>
-      <p>{props.data.price} €</p>
+      <img src={product.image} alt="" />
+      <h2>{product.title}</h2>
+      <p>{product.description}</p>
+      <p>{product.price} €</p>
       <button onClick={add}>
         {orderdToggle() ? "Gå till varukorgen" : "Lägg i varukorgen"}
       </button>

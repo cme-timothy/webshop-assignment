@@ -43,7 +43,7 @@ function CartList(props) {
       id: props.data.id,
       title: props.data.title,
       price: props.data.price,
-      pic: props.data.pic,
+      image: props.data.image,
       amount: count + addSubToggle,
     };
 
@@ -61,7 +61,7 @@ function CartList(props) {
 
   return (
     <div>
-      <img src={props.data.pic} alt="" />
+      <img src={props.data.image} alt="" />
       <Link to={`/produkter/${props.data.id}`}>{props.data.title}</Link>
       <h2>{props.data.price} €</h2>
       <button
