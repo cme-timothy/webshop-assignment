@@ -5,7 +5,6 @@ This is a simple webshop built for for my last react assignment. This project wa
 # Things to do
 
 Logic:
-add: login, register, user profile and admin page
 authenticate user
 token based log in
 learn xss attacks
