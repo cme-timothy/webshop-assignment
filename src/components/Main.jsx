@@ -19,7 +19,7 @@ function Main() {
         <Route path="/logIn" element={<LogIn />} />
         <Route path="/skapaKonto" element={<CreateAccount />} />
         <Route path="/adminProfil" element={<AdminProfile />} />
-        <Route path="/minProfil/:userId" element={<MyProfile />} />
+        <Route path="/minProfil" element={<MyProfile />} />
       </Routes>
     </div>
   );
