@@ -12,12 +12,6 @@ function LogIn() {
   const [logInFailed, setLogInFailed] = useState(false);
   const navigate = useNavigate();
 
-  console.log(token);
-
-  fetch("https://k4backend.osuka.dev/users/1")
-    .then((res) => res.json())
-    .then((json) => console.log(json));
-
   async function handleClick() {
     setLogInFailed(false);
     const response = await axios
@@ -26,9 +20,9 @@ function LogIn() {
         password: password,
       })
       .catch((error) => {
-          if (error.response.status >= 400 && error.response.status < 500) {
-            setLogInFailed(true);
-          }
+        if (error.response.status >= 400 && error.response.status < 500) {
+          setLogInFailed(true);
+        }
       });
     if (response !== undefined) {
       setToken(response.data);

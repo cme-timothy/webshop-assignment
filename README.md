@@ -4,17 +4,21 @@ This is a simple webshop built for for my last react assignment. This project wa
 
 # Things to do
 
-Logic:
-authenticate user
-token based log in
-learn xss attacks
-useNavigate hook log in redirect
+## Logic:
+create account
+admin specifik page 
+add user information to the user page
+add list of products and users to admin panel
+product filter
+user update info on user page
+admin delete product from store
 
-Logic extra:
-error handling
+### Logic extra:
+more error handling
+local storage token
 
-Styling:
-choose one design style
+## Styling:
+inspiration: ikea/gekås colors: yellow and blue
 design shop
 
 ## Pre-requisites
