@@ -3,12 +3,15 @@ import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { productsInCart } from "../recoil/cart/atom";
 import { auth } from "../recoil/auth/atom";
+import { userData } from "../recoil/userData/atom";
 
 function Header() {
   const [customerCart] = useRecoilState(productsInCart);
   const [loggedIn, setLoggedIn] = useState(false);
   const [token, setToken] = useRecoilState(auth);
-  
+  const [data, setData] = useRecoilState(userData);
+  const [adminLink, setAdminLink] = useState(false);
+
   const allOrders = [];
   allOrders.push(
     customerCart.map((element) => {
@@ -29,14 +32,23 @@ function Header() {
     }
   }, [token]);
 
+  useEffect(() => {
+    if (data.role === "admin") {
+      setAdminLink(true);
+    } else {
+      setAdminLink(false);
+    }
+  }, [data]);
+
   return (
     <div>
       <h1>Tung Store</h1>
       <Link to="/">Home</Link>
       <Link to="/produkter">Produkter</Link>
-      {loggedIn ? <Link to="/minProfil">Min profil</Link> : <Link to="/login">Logga in</Link>}
-      <Link to="/skapakonto">Skapa konto</Link>
+      {adminLink === false && (loggedIn ? <Link to="/minprofil">Min profil</Link> : <Link to="/login">Logga in</Link>)}
+      {adminLink === false && loggedIn === false && (<Link to="/skapakonto">Skapa konto</Link>)}
       <Link to="/varukorg">{`Varukorg(${sumAllOrders})`}</Link>
+      {adminLink === true && (<Link to="/adminprofil">Adminpanel</Link>)}
     </div>
   );
 }

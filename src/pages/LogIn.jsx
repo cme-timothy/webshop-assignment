@@ -4,11 +4,13 @@ import { Helmet } from "react-helmet-async";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { auth } from "../recoil/auth/atom";
+import { userData } from "../recoil/userData/atom";
 
 function LogIn() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [token, setToken] = useRecoilState(auth);
+  const [data, setData] = useRecoilState(userData);
   const [logInFailed, setLogInFailed] = useState(false);
   const navigate = useNavigate();
 
@@ -24,9 +26,21 @@ function LogIn() {
           setLogInFailed(true);
         }
       });
+
     if (response !== undefined) {
       setToken(response.data);
-      navigate("/minProfil");
+      async function getRole() {
+        const dataResponse = await axios.get(
+          `https://k4backend.osuka.dev/users/${response.data.userId}`
+        );
+        setData(dataResponse.data);
+        if (dataResponse.data.role === "admin") {
+          navigate("/adminprofil");
+        } else {
+          navigate("/minprofil");
+        }
+      }
+      getRole();
     }
   }
 

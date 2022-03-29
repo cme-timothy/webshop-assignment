@@ -6,7 +6,6 @@ This is a simple webshop built for for my last react assignment. This project wa
 
 ## Logic:
 create account
-admin specifik page 
 add user information to the user page
 add list of products and users to admin panel
 product filter

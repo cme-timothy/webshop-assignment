@@ -19,7 +19,7 @@ function MyProfile() {
 
   useEffect(() => {
     if (token.length === 0) {
-      navigate("/logIn");
+      navigate("/login");
     } else {
       getUser();
     }
@@ -27,7 +27,7 @@ function MyProfile() {
 
   function logOut() {
     setToken([]);
-    navigate("/logIn");
+    navigate("/login");
   }
 
   if (userData.length === 0) return <h3>Loading...</h3>;

@@ -16,10 +16,10 @@ function Main() {
         <Route path="/produkter" element={<ProductList />} />
         <Route path="/produkter/:productId" element={<ProductInfo />} />
         <Route path="/varukorg" element={<Cart />} />
-        <Route path="/logIn" element={<LogIn />} />
-        <Route path="/skapaKonto" element={<CreateAccount />} />
-        <Route path="/adminProfil" element={<AdminProfile />} />
-        <Route path="/minProfil" element={<MyProfile />} />
+        <Route path="/login" element={<LogIn />} />
+        <Route path="/skapakonto" element={<CreateAccount />} />
+        <Route path="/adminprofil" element={<AdminProfile />} />
+        <Route path="/minprofil" element={<MyProfile />} />
       </Routes>
     </div>
   );
