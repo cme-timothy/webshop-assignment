@@ -18,15 +18,6 @@ function ProductList() {
     return () => console.log("cleanup");
   }, [setCategories]);
 
-  useEffect(() => {
-    async function allProducts() {
-      const response = await axios.get("https://k4backend.osuka.dev/products");
-      setProductsList(response.data);
-    }
-    allProducts();
-    return () => console.log("cleanup");
-  }, [setProductsList]);
-
   async function filterAllProducts() {
     const response = await axios.get("https://k4backend.osuka.dev/products");
     setProductsList(response.data);

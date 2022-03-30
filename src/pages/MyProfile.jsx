@@ -10,10 +10,6 @@ function MyProfile() {
   const [token, setToken] = useRecoilState(auth);
   const [data, setData] = useRecoilState(userData);
 
-  fetch('https://k4backend.osuka.dev/users')
-            .then(res=>res.json())
-            .then(json=>console.log(json))
-
   useEffect(() => {
     if (token.length === 0) {
       navigate("/login");
@@ -35,6 +31,8 @@ function MyProfile() {
   }
 
   console.log(data);
+
+  if (token.length === 0) return <h3>Du har inte tillgång till den här sidan</h3>;
 
   return (
     <div>

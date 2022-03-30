@@ -7,8 +7,23 @@ import LogIn from "../pages/LogIn";
 import CreateAccount from "../pages/CreateAccount"
 import AdminProfile from "../pages/AdminProfile"
 import MyProfile from "../pages/MyProfile"
+import { useEffect } from "react";
+import { products } from "../recoil/products/atom";
+import { useRecoilState } from "recoil";
+import axios from "axios";
 
 function Main() {
+  const [productsList, setProductsList] = useRecoilState(products);
+  
+  useEffect(() => {
+    async function allProducts() {
+      const response = await axios.get("https://k4backend.osuka.dev/products");
+      setProductsList(response.data);
+    }
+    allProducts();
+    return () => console.log("cleanup");
+  }, []);
+
   return (
     <div>
       <Routes>
