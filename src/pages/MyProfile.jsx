@@ -10,6 +10,10 @@ function MyProfile() {
   const [token, setToken] = useRecoilState(auth);
   const [data, setData] = useRecoilState(userData);
 
+  fetch('https://k4backend.osuka.dev/users')
+            .then(res=>res.json())
+            .then(json=>console.log(json))
+
   useEffect(() => {
     if (token.length === 0) {
       navigate("/login");
@@ -22,6 +26,14 @@ function MyProfile() {
     navigate("/login");
   }
 
+  function changeProfile() {
+
+  }
+
+  function changeAdress() {
+
+  }
+
   console.log(data);
 
   return (
@@ -30,7 +42,18 @@ function MyProfile() {
         <title>Min profil - Tung Store</title>
       </Helmet>
       <h3>Min profil</h3>
-      <h3>Välkommen till din profil sida</h3>
+      <h3>Välkommen till din profilsida</h3>
+      <h2>Profil</h2>
+      <h4>Namn: {data.name.firstname} {data.name.lastname}</h4>
+      <h4>Lösenord: Av säkerhetsskäll visas inte lösenord</h4>
+      <h4>E-post: {data.email}</h4>
+      <button onClick={changeProfile}>Redigera profil</button>
+      <h2>Adress</h2>
+      <h4>Gatuadress {data.address.street}</h4>
+      <h4>Stad: {data.address.city}</h4>
+      <h4>Postnummer: {data.address.zipcode}</h4>
+      <h4>Telefonnummer: {data.phone}</h4>
+      <button onClick={changeAdress}>Redigera adress</button>
       <button onClick={logOut}>Logga ut</button>
     </div>
   );

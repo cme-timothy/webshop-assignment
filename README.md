@@ -5,16 +5,18 @@ This is a simple webshop built for for my last react assignment. This project wa
 # Things to do
 
 ## Logic:
-create account
-add user information to the user page
-add list of products and users to admin panel
-product filter
 user update info on user page
+add list of products and users to admin panel
 admin delete product from store
+
+## Ask?
+admin remove product from carts?
+add user works without all properties?
+asc/desc on products what determins the sorting order?
+i added userinfo to store/atom?
 
 ### Logic extra:
 more error handling
-local storage token
 
 ## Styling:
 inspiration: ikea/gekås colors: yellow and blue

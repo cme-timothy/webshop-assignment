@@ -7,7 +7,7 @@ import { auth } from "../recoil/auth/atom";
 import { userData } from "../recoil/userData/atom";
 
 function LogIn() {
-  const [userName, setUserName] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const setToken = useSetRecoilState(auth);
   const setData = useSetRecoilState(userData);
@@ -18,7 +18,7 @@ function LogIn() {
     setLogInFailed(false);
     const response = await axios
       .post("https://k4backend.osuka.dev/auth/login", {
-        username: userName,
+        username: username,
         password: password,
       })
       .catch((error) => {
@@ -44,9 +44,9 @@ function LogIn() {
     }
   }
 
-  function handleUserName(event) {
+  function handleUsername(event) {
     const value = event.target.value;
-    setUserName(value);
+    setUsername(value);
   }
 
   function handlePassword(event) {
@@ -70,8 +70,8 @@ function LogIn() {
         <input
           name="username"
           type="text"
-          value={userName}
-          onChange={handleUserName}
+          value={username}
+          onChange={handleUsername}
           onKeyDown={handleKeyDown}
         />
         <input
