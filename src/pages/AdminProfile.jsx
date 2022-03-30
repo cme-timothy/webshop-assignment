@@ -24,7 +24,6 @@ function AdminProfile() {
     const response = await axios.delete(
       `https://k4backend.osuka.dev/products/${id}`
     );
-    console.log(response.data.id);
     const filteredList = [...productsList].filter(
       (product) => product.id !== response.data.id
     );

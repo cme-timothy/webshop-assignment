@@ -5,18 +5,21 @@ This is a simple webshop built for for my last react assignment. This project wa
 # Things to do
 
 ## Logic:
-add list of products and users to admin panel
-user update info on user page
-admin delete product from store
+add list of users and carts to admin panel.
+user update info on user page.
 
 ## Ask?
+vad menar du med "En admin ska kunna uppdatera och ta bort en produkt i admin-panelen"?
+vad bör jag göra när jag får detta fel meddelandet "React Hook useEffect has a missing dependency: 'setProductsList'. Either include it or remove the dependency array  react-hooks/exhaustive-deps"?
 
 ### Logic extra:
-more error handling
+more error handling.
+admin deleted product still deleted when category filter button is clicked.
+admin productlist view all even if category filter button is clicked = solution: add view list button to admin productlist and fetch request for all products.
 
 ## Styling:
-inspiration: ikea/gekås colors: yellow and blue
-design shop
+inspiration: ikea/gekås colors: yellow and blue.
+design shop.
 
 ## Pre-requisites
 
