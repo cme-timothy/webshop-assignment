@@ -10,7 +10,7 @@ import UserList from "../components/UserList";
 import axios from "axios";
 import UserCartList from "../components/UserCartList";
 
-function AdminProfile() {
+function AdminPanel() {
   const [productsList, setProductsList] = useRecoilState(products);
   const navigate = useNavigate();
   const [token, setToken] = useRecoilState(auth);
@@ -47,7 +47,7 @@ function AdminProfile() {
       <Helmet>
         <title>Admin - Tung Store</title>
       </Helmet>
-      <h3>Admin Profil</h3>
+      <h3>Adminpanelen</h3>
       <h3>Välkommen till adminpanelen</h3>
       <button onClick={() => setShowProducts(!showProducts)}>
         Visa en lista med produkter
@@ -56,7 +56,7 @@ function AdminProfile() {
         productsList.map((data) => {
           return (
             <div key={data.id + "a"}>
-              <Link key={data.id} to={`/adminprofil/produkter/${data.id}`}>
+              <Link key={data.id} to={`/adminpanelen/produkter/${data.id}`}>
                 {data.title}
               </Link>
               <button
@@ -75,4 +75,4 @@ function AdminProfile() {
   );
 }
 
-export default AdminProfile;
+export default AdminPanel;

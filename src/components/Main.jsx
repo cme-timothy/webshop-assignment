@@ -5,7 +5,7 @@ import ProductInfo from "./ProductInfo";
 import Cart from "../pages/Cart";
 import LogIn from "../pages/LogIn";
 import CreateAccount from "../pages/CreateAccount"
-import AdminProfile from "../pages/AdminProfile"
+import AdminPanel from "../pages/AdminPanel"
 import MyProfile from "../pages/MyProfile"
 import { useEffect } from "react";
 import { products } from "../recoil/products/atom";
@@ -22,7 +22,6 @@ function Main() {
       setProductsList(response.data);
     }
     allProducts();
-    return () => console.log("cleanup");
   }, []);
 
   return (
@@ -34,8 +33,8 @@ function Main() {
         <Route path="/varukorg" element={<Cart />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/skapakonto" element={<CreateAccount />} />
-        <Route path="/adminprofil" element={<AdminProfile />} />
-        <Route path="/adminprofil/produkter/:produktId" element={<EditProductDetails />} />
+        <Route path="/adminpanelen" element={<AdminPanel />} />
+        <Route path="/adminpanelen/produkter/:produktId" element={<EditProductDetails />} />
         <Route path="/minprofil" element={<MyProfile />} />
       </Routes>
     </div>

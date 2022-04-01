@@ -12,12 +12,8 @@ This is a simple webshop built for for my last react assignment. This project wa
 more error handling.
 edit timestamp for allcarts in the admin panel.
 make more components in createaccount.
-add nanoid.
+use nanoid.
 onClick ternery for admin panel.
-more update product features for admin.
-change input default to product info for admin.
-make admin product update universal.
-change AdminProfile to AdminPanel.
 
 ## Styling:
 inspiration: ikea/gekås colors: yellow and blue.

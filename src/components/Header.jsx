@@ -48,7 +48,7 @@ function Header() {
       {adminLink === false && (loggedIn ? <Link to="/minprofil">Min profil</Link> : <Link to="/login">Logga in</Link>)}
       {adminLink === false && loggedIn === false && (<Link to="/skapakonto">Skapa konto</Link>)}
       <Link to="/varukorg">{`Varukorg(${sumAllOrders})`}</Link>
-      {adminLink === true && (<Link to="/adminprofil">Adminpanel</Link>)}
+      {adminLink === true && (<Link to="/adminpanelen">Adminpanelen</Link>)}
     </div>
   );
 }

@@ -35,7 +35,7 @@ function LogIn() {
         );
         setData(dataResponse.data);
         if (dataResponse.data.role === "admin") {
-          navigate("/adminprofil");
+          navigate("/adminpanelen");
         } else {
           navigate("/minprofil");
         }

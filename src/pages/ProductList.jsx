@@ -15,7 +15,6 @@ function ProductList() {
       setCategories(responseCategories.data);
     }
     getCategories();
-    return () => console.log("cleanup");
   }, [setCategories]);
 
   async function filterAllProducts() {

@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { auth } from "../recoil/auth/atom";
+import { useRecoilValue } from "recoil";
 
 function EditProductDetails() {
   const [product, setProduct] = useState([]);
-  const [updated, setUpdated] = useState(false);
-  const [productUpdate, setProductUpdate] = useState([]);
   const params = useParams();
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
+  const token = useRecoilValue(auth);
 
   useEffect(() => {
     async function getProduct() {
@@ -19,8 +20,7 @@ function EditProductDetails() {
       setProduct(response.data);
     }
     getProduct();
-    return () => console.log("cleanup");
-  }, [params.redigeraproduktId]);
+  }, []);
 
   if (product.length === 0) return <h3>Loading...</h3>;
 
@@ -28,13 +28,17 @@ function EditProductDetails() {
     const updatedProduct = await axios.put(
       `https://k4backend.osuka.dev/products/${params.produktId}`,
       {
-        title: title,
-        description: description,
-        price: price,
+        ...(title !== "" && { title: title }),
+        ...(title === "" && { title: product.title }),
+        ...(price !== "" && { price: price }),
+        ...(price === "" && { price: product.price }),
+        ...(description !== "" && { description: description }),
+        ...(description === "" && { description: product.description }),
+        image: product.image,
+        category: product.category,
       }
     );
-    setProductUpdate(updatedProduct.data);
-    setUpdated(true);
+    setProduct(updatedProduct.data);
     setTitle("");
     setDescription("");
     setPrice("");
@@ -61,49 +65,28 @@ function EditProductDetails() {
     }
   }
 
+  if (token.length === 0)
+  return <h3>Du har inte tillgång till den här sidan</h3>;
+
   return (
     <div>
       <h2>Redigera produkt information</h2>
       <img src={product.image} alt="" />
-      {updated === false && productUpdate.title === undefined && (
-        <h2>{product.title}</h2>
-      )}
-      {updated === true && productUpdate.title === "" && (
-        <h2>{product.title}</h2>
-      )}
-      {updated === true && productUpdate.title !== "" && (
-        <h2>{productUpdate.title}</h2>
-      )}
+      <h2>{product.title}</h2>
       <input
         type="text"
         value={title}
         onChange={handleTitle}
         onKeyDown={handleKeyDown}
       />
-      {updated === false && productUpdate.description === undefined && (
-        <p>{product.description}</p>
-      )}
-      {updated === true && productUpdate.description === "" && (
-        <p>{product.description}</p>
-      )}
-      {updated === true && productUpdate.description !== "" && (
-        <p>{productUpdate.description}</p>
-      )}
+      <p>{product.description}</p>
       <input
         type="text"
         value={description}
         onChange={handleDescription}
         onKeyDown={handleKeyDown}
       />
-      {updated === false && productUpdate.price === undefined && (
-        <p>{product.price} €</p>
-      )}
-      {updated === true && productUpdate.price === "" && (
-        <p>{product.price} €</p>
-      )}
-      {updated === true && productUpdate.price !== "" && (
-        <p>{productUpdate.price} €</p>
-      )}
+      <p>{product.price} €</p>
       <input
         type="number"
         min="0"
