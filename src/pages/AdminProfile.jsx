@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { auth } from "../recoil/auth/atom";
 import { userData } from "../recoil/userData/atom";
 import { Link } from "react-router-dom";
@@ -14,7 +14,7 @@ function AdminProfile() {
   const [productsList, setProductsList] = useRecoilState(products);
   const navigate = useNavigate();
   const [token, setToken] = useRecoilState(auth);
-  const [data, setData] = useRecoilState(userData);
+  const setData = useSetRecoilState(userData);
   const [showProducts, setShowProducts] = useState(false);
 
   useEffect(() => {
@@ -22,12 +22,6 @@ function AdminProfile() {
       navigate("/login");
     }
   }, [token, navigate]);
-
-  async function allProducts() {
-    setShowProducts(!showProducts);
-    const response = await axios.get("https://k4backend.osuka.dev/products");
-    setProductsList(response.data);
-  }
 
   async function deleteOnClick(id) {
     const response = await axios.delete(
@@ -55,19 +49,21 @@ function AdminProfile() {
       </Helmet>
       <h3>Admin Profil</h3>
       <h3>Välkommen till adminpanelen</h3>
-      <button onClick={allProducts}>Visa en lista med produkter</button>
+      <button onClick={() => setShowProducts(!showProducts)}>
+        Visa en lista med produkter
+      </button>
       {showProducts === true &&
         productsList.map((data) => {
           return (
             <div key={data.id + "a"}>
-              <Link key={data.id} to={`/produkter/${data.id}`}>
+              <Link key={data.id} to={`/adminprofil/produkter/${data.id}`}>
                 {data.title}
               </Link>
               <button
                 onClick={() => deleteOnClick(data.id)}
                 key={data.id + "b"}
               >
-                Delete item
+                Ta bort produkt
               </button>
             </div>
           );

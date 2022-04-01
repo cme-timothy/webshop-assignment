@@ -5,7 +5,6 @@ This is a simple webshop built for for my last react assignment. This project wa
 # Things to do
 
 ## Logic:
-admin update product info in admin panel.
 user update info on user page.
 
 ## Ask?
@@ -13,8 +12,12 @@ user update info on user page.
 ### Logic extra:
 more error handling.
 edit timestamp for allcarts in the admin panel.
-make more components, in createaccount.
+make more components in createaccount.
 add nanoid.
+onClick ternery for admin panel.
+more update product features for admin.
+change input default to product info for admin.
+make admin product update universal.
 
 ## Styling:
 inspiration: ikea/gekås colors: yellow and blue.

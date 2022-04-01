@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import { products } from "../recoil/products/atom";
 import { useSetRecoilState } from "recoil";
 import axios from "axios";
+import EditProductDetails from "./EditProductDetails";
 
 function Main() {
   const setProductsList = useSetRecoilState(products);
@@ -29,11 +30,12 @@ function Main() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/produkter" element={<ProductList />} />
-        <Route path="/produkter/:productId" element={<ProductInfo />} />
+        <Route path="/produkter/:produktId" element={<ProductInfo />} />
         <Route path="/varukorg" element={<Cart />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/skapakonto" element={<CreateAccount />} />
         <Route path="/adminprofil" element={<AdminProfile />} />
+        <Route path="/adminprofil/produkter/:produktId" element={<EditProductDetails />} />
         <Route path="/minprofil" element={<MyProfile />} />
       </Routes>
     </div>

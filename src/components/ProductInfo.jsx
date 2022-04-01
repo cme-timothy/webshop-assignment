@@ -15,7 +15,7 @@ function ProductInfo() {
   useEffect(() => {
     async function getProduct() {
       const response = await axios.get(
-        `https://k4backend.osuka.dev/products/${params.productId}`
+        `https://k4backend.osuka.dev/products/${params.produktId}`
       );
       setProduct(response.data);
     }
