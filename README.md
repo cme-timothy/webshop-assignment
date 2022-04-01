@@ -13,7 +13,7 @@ user update info on user page.
 ### Logic extra:
 more error handling.
 edit timestamp for allcarts in the admin panel.
-make more components.
+make more components, in createaccount.
 add nanoid.
 
 ## Styling:

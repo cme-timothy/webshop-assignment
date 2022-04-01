@@ -9,11 +9,11 @@ import AdminProfile from "../pages/AdminProfile"
 import MyProfile from "../pages/MyProfile"
 import { useEffect } from "react";
 import { products } from "../recoil/products/atom";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import axios from "axios";
 
 function Main() {
-  const [productsList, setProductsList] = useRecoilState(products);
+  const setProductsList = useSetRecoilState(products);
   
   useEffect(() => {
     async function allProducts() {
