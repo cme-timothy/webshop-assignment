@@ -5,7 +5,6 @@ This is a simple webshop built for for my last react assignment. This project wa
 # Things to do
 
 ## Logic:
-user update info on user page.
 
 ## Ask?
 
@@ -18,6 +17,7 @@ onClick ternery for admin panel.
 more update product features for admin.
 change input default to product info for admin.
 make admin product update universal.
+change AdminProfile to AdminPanel.
 
 ## Styling:
 inspiration: ikea/gekås colors: yellow and blue.

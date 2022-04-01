@@ -35,6 +35,9 @@ function EditProductDetails() {
     );
     setProductUpdate(updatedProduct.data);
     setUpdated(true);
+    setTitle("");
+    setDescription("");
+    setPrice("");
   }
 
   function handleTitle(event) {
