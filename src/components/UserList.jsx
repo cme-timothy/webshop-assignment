@@ -13,7 +13,11 @@ function UserList() {
 
   return (
     <div>
-      <button onClick={allUsers}>Visa en lista med användare</button>
+      {showUsers ? (
+        <button onClick={allUsers}>Göm listan med användare</button>
+      ) : (
+        <button onClick={allUsers}>Visa en lista med användare</button>
+      )}
       {showUsers === true &&
         users.map((data) => {
           return (

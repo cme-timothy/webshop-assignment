@@ -49,9 +49,15 @@ function AdminPanel() {
       </Helmet>
       <h3>Adminpanelen</h3>
       <h3>Välkommen till adminpanelen</h3>
-      <button onClick={() => setShowProducts(!showProducts)}>
-        Visa en lista med produkter
-      </button>
+      {showProducts ? (
+        <button onClick={() => setShowProducts(!showProducts)}>
+          Göm listan med produkter
+        </button>
+      ) : (
+        <button onClick={() => setShowProducts(!showProducts)}>
+          Visa en lista med produkter
+        </button>
+      )}
       {showProducts === true &&
         productsList.map((data) => {
           return (

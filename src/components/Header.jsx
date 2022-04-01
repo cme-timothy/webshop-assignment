@@ -45,10 +45,17 @@ function Header() {
       <h1>Tung Store</h1>
       <Link to="/">Home</Link>
       <Link to="/produkter">Produkter</Link>
-      {adminLink === false && (loggedIn ? <Link to="/minprofil">Min profil</Link> : <Link to="/login">Logga in</Link>)}
-      {adminLink === false && loggedIn === false && (<Link to="/skapakonto">Skapa konto</Link>)}
+      {adminLink === false &&
+        (loggedIn ? (
+          <Link to="/minprofil">Min profil</Link>
+        ) : (
+          <Link to="/login">Logga in</Link>
+        ))}
+      {adminLink === false && loggedIn === false && (
+        <Link to="/skapakonto">Skapa konto</Link>
+      )}
       <Link to="/varukorg">{`Varukorg(${sumAllOrders})`}</Link>
-      {adminLink === true && (<Link to="/adminpanelen">Adminpanelen</Link>)}
+      {adminLink === true && <Link to="/adminpanelen">Adminpanelen</Link>}
     </div>
   );
 }

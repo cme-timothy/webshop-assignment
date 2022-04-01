@@ -11,7 +11,9 @@ function ProductList() {
 
   useEffect(() => {
     async function getCategories() {
-      const responseCategories = await axios.get("https://k4backend.osuka.dev/products/categories");
+      const responseCategories = await axios.get(
+        "https://k4backend.osuka.dev/products/categories"
+      );
       setCategories(responseCategories.data);
     }
     getCategories();
@@ -23,11 +25,14 @@ function ProductList() {
   }
 
   async function filterCategories(category) {
-    const responseCategories = await axios.get(`https://k4backend.osuka.dev/products/category/${category}`);
+    const responseCategories = await axios.get(
+      `https://k4backend.osuka.dev/products/category/${category}`
+    );
     setProductsList(responseCategories.data);
   }
 
-  if (productsList.length === 0 || categories.length === 0) return <h3>Loading...</h3>;
+  if (productsList.length === 0 || categories.length === 0)
+    return <h3>Loading...</h3>;
 
   return (
     <div>
@@ -36,7 +41,11 @@ function ProductList() {
       </Helmet>
       <h3>Våra klipp</h3>
       {categories.map((data) => {
-        return <button key={data} onClick={() => filterCategories(data)}>{data}</button>;
+        return (
+          <button key={data} onClick={() => filterCategories(data)}>
+            {data}
+          </button>
+        );
       })}
       <button onClick={filterAllProducts}>all</button>
       {productsList.map((data) => {

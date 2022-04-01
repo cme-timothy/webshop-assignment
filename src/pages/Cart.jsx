@@ -14,7 +14,7 @@ function Cart() {
       return false;
     }
   }
-  
+
   return (
     <div>
       <Helmet>

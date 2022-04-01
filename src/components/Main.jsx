@@ -4,9 +4,9 @@ import ProductList from "../pages/ProductList";
 import ProductInfo from "./ProductInfo";
 import Cart from "../pages/Cart";
 import LogIn from "../pages/LogIn";
-import CreateAccount from "../pages/CreateAccount"
-import AdminPanel from "../pages/AdminPanel"
-import MyProfile from "../pages/MyProfile"
+import CreateAccount from "../pages/CreateAccount";
+import AdminPanel from "../pages/AdminPanel";
+import MyProfile from "../pages/MyProfile";
 import { useEffect } from "react";
 import { products } from "../recoil/products/atom";
 import { useSetRecoilState } from "recoil";
@@ -15,7 +15,7 @@ import EditProductDetails from "./EditProductDetails";
 
 function Main() {
   const setProductsList = useSetRecoilState(products);
-  
+
   useEffect(() => {
     async function allProducts() {
       const response = await axios.get("https://k4backend.osuka.dev/products");
@@ -34,7 +34,10 @@ function Main() {
         <Route path="/login" element={<LogIn />} />
         <Route path="/skapakonto" element={<CreateAccount />} />
         <Route path="/adminpanelen" element={<AdminPanel />} />
-        <Route path="/adminpanelen/produkter/:produktId" element={<EditProductDetails />} />
+        <Route
+          path="/adminpanelen/produkter/:produktId"
+          element={<EditProductDetails />}
+        />
         <Route path="/minprofil" element={<MyProfile />} />
       </Routes>
     </div>

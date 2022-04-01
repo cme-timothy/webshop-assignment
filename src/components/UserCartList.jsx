@@ -17,9 +17,13 @@ function UserCartList() {
 
   return (
     <div>
-      <button onClick={allCarts}>
-        Visa en lista med användares varukorgar
-      </button>
+      {showCarts ? (
+        <button onClick={allCarts}>Göm listan med användares varukorgar</button>
+      ) : (
+        <button onClick={allCarts}>
+          Visa en lista med användares varukorgar
+        </button>
+      )}
       {showCarts === true &&
         userCarts.map((data) => {
           return (

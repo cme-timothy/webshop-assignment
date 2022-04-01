@@ -10,7 +10,6 @@ function ProductInfo() {
   const [amount] = useState(0);
   const [product, setProduct] = useState([]);
   const params = useParams();
-  
 
   useEffect(() => {
     async function getProduct() {
@@ -20,7 +19,6 @@ function ProductInfo() {
       setProduct(response.data);
     }
     getProduct();
-    return () => console.log("cleanup");
   }, [params.produktId]);
 
   if (product.length === 0) return <h3>Loading...</h3>;
@@ -87,9 +85,7 @@ function ProductInfo() {
       <p>{product.price} €</p>
       <button onClick={add}>
         {orderdToggle() ? (
-          <Link to="/varukorg">
-            Gå till varukorgen
-          </Link>
+          <Link to="/varukorg">Gå till varukorgen</Link>
         ) : (
           "Lägg i varukorgen"
         )}

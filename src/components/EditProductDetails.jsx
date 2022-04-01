@@ -66,7 +66,7 @@ function EditProductDetails() {
   }
 
   if (token.length === 0)
-  return <h3>Du har inte tillgång till den här sidan</h3>;
+    return <h3>Du har inte tillgång till den här sidan</h3>;
 
   return (
     <div>

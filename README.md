@@ -9,19 +9,24 @@ This is a simple webshop built for for my last react assignment. This project wa
 ## Ask?
 
 ### Logic extra:
+
 more error handling.
 edit timestamp for allcarts in the admin panel.
-make more components in createaccount.
 use nanoid.
 onClick ternery for admin panel.
 
+make more components in createaccount.
+create productListAdmin komponent.
+
 ## Styling:
+
 inspiration: ikea/gekås colors: yellow and blue.
 design shop.
 
 ## Pre-requisites
 
 Before you proceed to install, you need to have the following tools installed:
+
 - [Node](https://nodejs.org/en/)
 
 ## How to install
@@ -53,11 +58,13 @@ npm run build
 ```
 npm run test
 ```
+
 Launches the test runner in the interactive watch mode.
 
 ```
 npm run eject
 ```
+
 **Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
 If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
