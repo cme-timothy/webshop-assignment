@@ -1,4 +1,5 @@
 import axios from "axios";
+import { nanoid } from "nanoid";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
@@ -27,21 +28,21 @@ function UserCartList() {
       {showCarts === true &&
         userCarts.map((data) => {
           return (
-            <div key={data.id + "j"}>
-              <h3 key={data.id + "i"}>Användar Id: {data.userId}</h3>
-              <h3 key={data.id + "k"}>Datum: {data.date}</h3>
+            <div key={data.id + nanoid()}>
+              <h3 key={data.id + nanoid()}>Användar Id: {data.userId}</h3>
+              <h3 key={data.id + nanoid()}>Datum: {data.date}</h3>
               <h3>Produkter i varukorgen</h3>
-              <h3 key={data.id + "l"}>
+              <h3 key={data.id + nanoid()}>
                 {data.products.map((product) => {
                   return (
-                    <div key={product.productId + "m"}>
+                    <div key={product.productId + nanoid()}>
                       <Link
-                        key={product.productId + "n"}
+                        key={product.productId + nanoid()}
                         to={`/produkter/${product.productId}`}
                       >
                         {productsList[product.productId - 1].title}
                       </Link>
-                      <h4 key={product.productId + "o"}>
+                      <h4 key={product.productId + nanoid()}>
                         Kvantitet: {product.quantity}
                       </h4>
                     </div>

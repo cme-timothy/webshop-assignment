@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { nanoid } from "nanoid";
 
 function UserList() {
   const [showUsers, setShowUsers] = useState(false);
@@ -21,14 +22,14 @@ function UserList() {
       {showUsers === true &&
         users.map((data) => {
           return (
-            <div key={data.id + "c"}>
-              <h3 key={data.id + "d"}>Användar Id: {data.Id}</h3>
-              <h3 key={data.id + "e"}>Användarnamn: {data.username}</h3>
-              <h3 key={data.id + "f"}>
+            <div key={data.id + nanoid()}>
+              <h3 key={data.id + nanoid()}>Användar Id: {data.Id}</h3>
+              <h3 key={data.id + nanoid()}>Användarnamn: {data.username}</h3>
+              <h3 key={data.id + nanoid()}>
                 Namn: {data.name.firstname} {data.name.lastname}
               </h3>
-              <h3 key={data.id + "g"}>E-post: {data.email}</h3>
-              <h3 key={data.id + "h"}>Telefonnummer: {data.phone}</h3>
+              <h3 key={data.id + nanoid()}>E-post: {data.email}</h3>
+              <h3 key={data.id + nanoid()}>Telefonnummer: {data.phone}</h3>
             </div>
           );
         })}

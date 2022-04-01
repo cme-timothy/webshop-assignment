@@ -9,6 +9,7 @@ import { products } from "../recoil/products/atom";
 import UserList from "../components/UserList";
 import axios from "axios";
 import UserCartList from "../components/UserCartList";
+import { nanoid } from "nanoid";
 
 function AdminPanel() {
   const [productsList, setProductsList] = useRecoilState(products);
@@ -61,13 +62,13 @@ function AdminPanel() {
       {showProducts === true &&
         productsList.map((data) => {
           return (
-            <div key={data.id + "a"}>
-              <Link key={data.id} to={`/adminpanelen/produkter/${data.id}`}>
+            <div key={data.id + nanoid()}>
+              <Link key={data.id + nanoid()} to={`/adminpanelen/produkter/${data.id}`}>
                 {data.title}
               </Link>
               <button
                 onClick={() => deleteOnClick(data.id)}
-                key={data.id + "b"}
+                key={data.id + nanoid()}
               >
                 Ta bort produkt
               </button>

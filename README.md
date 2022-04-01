@@ -13,7 +13,6 @@ This is a simple webshop built for for my last react assignment. This project wa
 more error handling.
 edit timestamp for allcarts in the admin panel.
 use nanoid.
-onClick ternery for admin panel.
 
 make more components in createaccount.
 create productListAdmin komponent.
