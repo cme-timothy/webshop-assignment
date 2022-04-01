@@ -30,7 +30,7 @@ function UserCartList() {
           return (
             <div key={data.id + nanoid()}>
               <h3 key={data.id + nanoid()}>Användar Id: {data.userId}</h3>
-              <h3 key={data.id + nanoid()}>Datum: {data.date}</h3>
+              <h3 key={data.id + nanoid()}>Datum: {data.date.slice(0, 10)}</h3>
               <h3>Produkter i varukorgen</h3>
               <h3 key={data.id + nanoid()}>
                 {data.products.map((product) => {

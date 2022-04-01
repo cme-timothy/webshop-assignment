@@ -11,9 +11,6 @@ This is a simple webshop built for for my last react assignment. This project wa
 ### Logic extra:
 
 more error handling.
-edit timestamp for allcarts in the admin panel.
-use nanoid.
-
 make more components in createaccount.
 create productListAdmin komponent.
 

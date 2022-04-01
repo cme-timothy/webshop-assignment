@@ -11,6 +11,7 @@ function EditProductDetails() {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const token = useRecoilValue(auth);
+  const [noUpdate, setNoUpdate] = useState(false);
 
   useEffect(() => {
     async function getProduct() {
@@ -25,6 +26,8 @@ function EditProductDetails() {
   if (product.length === 0) return <h3>Loading...</h3>;
 
   async function submit() {
+    setNoUpdate(false);
+    const sameTest = product;
     const updatedProduct = await axios.put(
       `https://k4backend.osuka.dev/products/${params.produktId}`,
       {
@@ -38,6 +41,13 @@ function EditProductDetails() {
         category: product.category,
       }
     );
+    if (
+      sameTest.title === updatedProduct.data.title &&
+      sameTest.price === updatedProduct.data.price &&
+      sameTest.description === updatedProduct.data.description
+    ) {
+      setNoUpdate(true);
+    }
     setProduct(updatedProduct.data);
     setTitle("");
     setDescription("");
@@ -97,6 +107,7 @@ function EditProductDetails() {
       <button type="submit" onClick={submit}>
         Uppdatera
       </button>
+      {noUpdate === true && <h3>Inga förändringar har gjorts</h3>}
     </div>
   );
 }
