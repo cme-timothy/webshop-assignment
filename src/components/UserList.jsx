@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { nanoid } from "nanoid";
+import { Button } from '@chakra-ui/react'
 
 function UserList() {
   const [showUsers, setShowUsers] = useState(false);
@@ -15,9 +16,9 @@ function UserList() {
   return (
     <div>
       {showUsers ? (
-        <button onClick={allUsers}>Göm listan med användare</button>
+        <Button colorScheme='yellow' size='xs' onClick={allUsers}>Göm listan med användare</Button>
       ) : (
-        <button onClick={allUsers}>Visa en lista med användare</button>
+        <Button colorScheme='yellow' size='xs' onClick={allUsers}>Visa en lista med användare</Button>
       )}
       {showUsers === true &&
         users.map((data) => {

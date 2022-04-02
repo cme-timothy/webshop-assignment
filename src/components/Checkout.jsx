@@ -1,5 +1,6 @@
 import { useRecoilValue } from "recoil";
 import { productsInCart } from "../recoil/cart/atom";
+import { Button } from '@chakra-ui/react'
 
 function Checkout() {
   const customerCart = useRecoilValue(productsInCart);
@@ -24,7 +25,7 @@ function Checkout() {
       <h2>0 €</h2>
       <h2>Summa</h2>
       <h2>{`${twoDecimals} €`}</h2>
-      <button>Till kassan</button>
+      <Button colorScheme='yellow' size='xs'>Till kassan</Button>
     </div>
   );
 }

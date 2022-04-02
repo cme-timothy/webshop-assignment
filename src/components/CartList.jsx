@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { productsInCart } from "../recoil/cart/atom";
 import { useState } from "react";
+import { Button } from "@chakra-ui/react";
 
 function CartList(props) {
   const [cart, setCart] = useRecoilState(productsInCart);
@@ -64,13 +65,15 @@ function CartList(props) {
       <img src={props.data.image} alt="" />
       <Link to={`/produkter/${props.data.id}`}>{props.data.title}</Link>
       <h2>{props.data.price} €</h2>
-      <button
+      <Button
+        colorScheme="yellow"
+        size="xs"
         onClick={() => {
           add(false);
         }}
       >
         -
-      </button>
+      </Button>
       <input
         type="number"
         min="1"
@@ -79,14 +82,18 @@ function CartList(props) {
         value={count}
         onChange={handleChange}
       ></input>
-      <button
+      <Button
+        colorScheme="yellow"
+        size="xs"
         onClick={() => {
           add(true);
         }}
       >
         +
-      </button>
-      <button onClick={handleClick}>Ta bort produkt</button>
+      </Button>
+      <Button colorScheme="yellow" size="xs" onClick={handleClick}>
+        Ta bort produkt
+      </Button>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { Button } from '@chakra-ui/react'
 
 function ProductInfo() {
   const [cart, setCart] = useRecoilState(productsInCart);
@@ -83,13 +84,13 @@ function ProductInfo() {
       <h2>{product.title}</h2>
       <p>{product.description}</p>
       <p>{product.price} €</p>
-      <button onClick={add}>
+      <Button colorScheme="yellow" size="xs" onClick={add}>
         {orderdToggle() ? (
           <Link to="/varukorg">Gå till varukorgen</Link>
         ) : (
           "Lägg i varukorgen"
         )}
-      </button>
+      </Button>
     </div>
   );
 }

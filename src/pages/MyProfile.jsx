@@ -6,6 +6,7 @@ import { auth } from "../recoil/auth/atom";
 import { userData } from "../recoil/userData/atom";
 import EditUserProfile from "../components/EditUserProfile";
 import EditUserAddress from "../components/EditUserAddress";
+import { Button } from '@chakra-ui/react'
 
 function MyProfile() {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ function MyProfile() {
       <h3>Välkommen till din profilsida</h3>
       <EditUserProfile />
       <EditUserAddress />
-      <button onClick={logOut}>Logga ut</button>
+      <Button colorScheme='yellow' size='xs' onClick={logOut}>Logga ut</Button>
     </div>
   );
 }

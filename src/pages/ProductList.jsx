@@ -4,6 +4,7 @@ import ProductLink from "../components/ProductLink";
 import { products } from "../recoil/products/atom";
 import { useRecoilState } from "recoil";
 import axios from "axios";
+import { Button } from '@chakra-ui/react'
 
 function ProductList() {
   const [productsList, setProductsList] = useRecoilState(products);
@@ -42,12 +43,12 @@ function ProductList() {
       <h3>Våra klipp</h3>
       {categories.map((data) => {
         return (
-          <button key={data} onClick={() => filterCategories(data)}>
+          <Button colorScheme='yellow' size='xs' key={data} onClick={() => filterCategories(data)}>
             {data}
-          </button>
+          </Button>
         );
       })}
-      <button onClick={filterAllProducts}>all</button>
+      <Button colorScheme='yellow' size='xs' onClick={filterAllProducts}>all</Button>
       {productsList.map((data) => {
         return <ProductLink key={data.id} data={data} />;
       })}

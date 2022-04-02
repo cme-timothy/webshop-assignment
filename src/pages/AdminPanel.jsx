@@ -10,6 +10,7 @@ import UserList from "../components/UserList";
 import axios from "axios";
 import UserCartList from "../components/UserCartList";
 import { nanoid } from "nanoid";
+import { Button } from "@chakra-ui/react";
 
 function AdminPanel() {
   const [productsList, setProductsList] = useRecoilState(products);
@@ -51,33 +52,48 @@ function AdminPanel() {
       <h3>Adminpanelen</h3>
       <h3>Välkommen till adminpanelen</h3>
       {showProducts ? (
-        <button onClick={() => setShowProducts(!showProducts)}>
+        <Button
+          colorScheme="yellow"
+          size="xs"
+          onClick={() => setShowProducts(!showProducts)}
+        >
           Göm listan med produkter
-        </button>
+        </Button>
       ) : (
-        <button onClick={() => setShowProducts(!showProducts)}>
+        <Button
+          colorScheme="yellow"
+          size="xs"
+          onClick={() => setShowProducts(!showProducts)}
+        >
           Visa en lista med produkter
-        </button>
+        </Button>
       )}
       {showProducts === true &&
         productsList.map((data) => {
           return (
             <div key={data.id + nanoid()}>
-              <Link key={data.id + nanoid()} to={`/adminpanelen/produkter/${data.id}`}>
+              <Link
+                key={data.id + nanoid()}
+                to={`/adminpanelen/produkter/${data.id}`}
+              >
                 {data.title}
               </Link>
-              <button
+              <Button
+                colorScheme="yellow"
+                size="xs"
                 onClick={() => deleteOnClick(data.id)}
                 key={data.id + nanoid()}
               >
                 Ta bort produkt
-              </button>
+              </Button>
             </div>
           );
         })}
       <UserList />
       <UserCartList />
-      <button onClick={logOut}>Logga ut</button>
+      <Button colorScheme="yellow" size="xs" onClick={logOut}>
+        Logga ut
+      </Button>
     </div>
   );
 }

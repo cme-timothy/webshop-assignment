@@ -5,6 +5,14 @@ import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
 import { auth } from "../recoil/auth/atom";
 import { userData } from "../recoil/userData/atom";
+import {
+  Button,
+  Flex,
+  FormLabel,
+  Heading,
+  FormControl,
+} from "@chakra-ui/react";
+import { Input, Box } from "@chakra-ui/react";
 
 function LogIn() {
   const [username, setUsername] = useState("");
@@ -65,29 +73,46 @@ function LogIn() {
       <Helmet>
         <title>Logga in - Tung Store</title>
       </Helmet>
-      <h3>Logga in</h3>
-      <div>
-        <input
-          name="username"
-          type="text"
-          value={username}
-          onChange={handleUsername}
-          onKeyDown={handleKeyDown}
-        />
-        <input
-          name="password"
-          type="password"
-          value={password}
-          onChange={handlePassword}
-          onKeyDown={handleKeyDown}
-        />
-        <button type="submit" onClick={authenticate}>
-          Logga in
-        </button>
-        {logInFailed ? (
-          <h4>Ditt användarnamn eller lösenord är fel!</h4>
-        ) : undefined}
-      </div>
+      <Flex justifyContent="center">
+        <Box borderWidth={1} boxShadow="md" textAlign="center" bg="white" h="26em" w="30em" p={8}>
+          <FormControl>
+            <Heading mt={4} mb={12}>Logga in till ditt Konto</Heading>
+            <FormLabel mt={2} mb={1}>Användarnamn</FormLabel>
+            <Input
+              colorScheme="blue"
+              placeholder="Skriv in ditt användarnamn"
+              name="username"
+              type="text"
+              value={username}
+              onChange={handleUsername}
+              onKeyDown={handleKeyDown}
+            />
+            <FormLabel mt={2} mb={1}>Lösenord</FormLabel>
+            <Input
+              id="field-2"
+              colorScheme="blue"
+              placeholder="Skriv in ditt lösenord"
+              name="password"
+              type="password"
+              value={password}
+              onChange={handlePassword}
+              onKeyDown={handleKeyDown}
+            />
+          </FormControl>
+          <Button
+            w="100%"
+            colorScheme="blue"
+            mt={8} 
+            type="submit"
+            onClick={authenticate}
+          >
+            Logga in
+          </Button>
+          {logInFailed ? (
+            <Heading mt={4} size="s" color="red">Ditt användarnamn eller lösenord är fel!</Heading>
+          ) : undefined}
+        </Box>
+      </Flex>
     </div>
   );
 }

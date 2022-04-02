@@ -5,6 +5,7 @@ import axios from "axios";
 import { useSetRecoilState } from "recoil";
 import { auth } from "../recoil/auth/atom";
 import { userData } from "../recoil/userData/atom";
+import { Button } from "@chakra-ui/react"
 
 function CreateAccount() {
   const [username, setUsername] = useState("");
@@ -205,9 +206,9 @@ function CreateAccount() {
           onChange={handlePhone}
           onKeyDown={handleKeyDown}
         />
-        <button type="submit" onClick={submit}>
+        <Button colorScheme='yellow' size='xs' type="submit" onClick={submit}>
           Skapa konto
-        </button>
+        </Button>
         {accountCreationFailed ? (
           <h4>Något av det du mattat in är fel!</h4>
         ) : undefined}

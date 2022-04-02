@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { auth } from "../recoil/auth/atom";
 import { useRecoilValue } from "recoil";
+import { Button } from '@chakra-ui/react'
 
 function EditProductDetails() {
   const [product, setProduct] = useState([]);
@@ -104,9 +105,9 @@ function EditProductDetails() {
         onChange={handlePrice}
         onKeyDown={handleKeyDown}
       />
-      <button type="submit" onClick={submit}>
+      <Button colorScheme='yellow' size='xs' type="submit" onClick={submit}>
         Uppdatera
-      </button>
+      </Button>
       {noUpdate === true && <h3>Inga förändringar har gjorts</h3>}
     </div>
   );

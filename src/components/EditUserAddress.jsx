@@ -2,6 +2,7 @@ import { userData } from "../recoil/userData/atom";
 import { useRecoilState } from "recoil";
 import axios from "axios";
 import { useState } from "react";
+import { Button } from '@chakra-ui/react'
 
 function EditUserAddress() {
   const [data, setData] = useRecoilState(userData);
@@ -114,9 +115,9 @@ function EditUserAddress() {
         ></input>
       )}
       {editAddress ? (
-        <button onClick={submit}>Uppdatera adressen</button>
+        <Button colorScheme='yellow' size='xs' onClick={submit}>Uppdatera adressen</Button>
       ) : (
-        <button onClick={showInput}>Redigera adress</button>
+        <Button colorScheme='yellow' size='xs' onClick={showInput}>Redigera adress</Button>
       )}
     </div>
   );

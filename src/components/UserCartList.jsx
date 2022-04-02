@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { products } from "../recoil/products/atom";
+import { Button } from "@chakra-ui/react";
 
 function UserCartList() {
   const [showCarts, setShowCarts] = useState(false);
@@ -19,11 +20,13 @@ function UserCartList() {
   return (
     <div>
       {showCarts ? (
-        <button onClick={allCarts}>Göm listan med användares varukorgar</button>
+        <Button colorScheme="yellow" size="xs" onClick={allCarts}>
+          Göm listan med användares varukorgar
+        </Button>
       ) : (
-        <button onClick={allCarts}>
+        <Button colorScheme="yellow" size="xs" onClick={allCarts}>
           Visa en lista med användares varukorgar
-        </button>
+        </Button>
       )}
       {showCarts === true &&
         userCarts.map((data) => {

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { userData } from "../recoil/userData/atom";
+import { Button } from '@chakra-ui/react'
 
 function EditUserProfile() {
   const [data, setData] = useRecoilState(userData);
@@ -134,9 +135,9 @@ function EditUserProfile() {
         ></input>
       )}
       {editProfile ? (
-        <button onClick={submit}>Uppdatera profilen</button>
+        <Button colorScheme='yellow' size='xs' onClick={submit}>Uppdatera profilen</Button>
       ) : (
-        <button onClick={showInput}>Redigera profil</button>
+        <Button colorScheme='yellow' size='xs' onClick={showInput}>Redigera profil</Button>
       )}
     </div>
   );

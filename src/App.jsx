@@ -1,4 +1,3 @@
-import "./App.css";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import { BrowserRouter as Router } from "react-router-dom";
@@ -7,7 +6,7 @@ import { RecoilRoot } from "recoil";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <HelmetProvider>
         <Router>
           <RecoilRoot>
