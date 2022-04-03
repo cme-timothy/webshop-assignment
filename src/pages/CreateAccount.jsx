@@ -5,7 +5,16 @@ import axios from "axios";
 import { useSetRecoilState } from "recoil";
 import { auth } from "../recoil/auth/atom";
 import { userData } from "../recoil/userData/atom";
-import { Button } from "@chakra-ui/react"
+import {
+  Button,
+  Flex,
+  FormLabel,
+  Heading,
+  FormControl,
+  Input,
+  Box,
+} from "@chakra-ui/react";
+import { nanoid } from "nanoid";
 
 function CreateAccount() {
   const [username, setUsername] = useState("");
@@ -132,87 +141,133 @@ function CreateAccount() {
       <Helmet>
         <title>Skapa konto - Tung Store</title>
       </Helmet>
-      <h3>Skapa konto</h3>
-      <div>
-        <label>Användarnamn</label>
-        <input
-          name="username"
-          type="text"
-          value={username}
-          onChange={handleUsername}
-          onKeyDown={handleKeyDown}
-        />
-        <label>Lösenord</label>
-        <input
-          name="password"
-          type="password"
-          value={password}
-          onChange={handlePassword}
-          onKeyDown={handleKeyDown}
-        />
-        <label>E-post</label>
-        <input
-          name="email"
-          type="email"
-          value={email}
-          onChange={handleEmail}
-          onKeyDown={handleKeyDown}
-        />
-        <label>Förnamn</label>
-        <input
-          name="firstName"
-          type="text"
-          value={firstName}
-          onChange={handleFirstName}
-          onKeyDown={handleKeyDown}
-        />
-        <label>Efternamn</label>
-        <input
-          name="lastName"
-          type="text"
-          value={lastName}
-          onChange={handleLastName}
-          onKeyDown={handleKeyDown}
-        />
-        <label>Gatuadress</label>
-        <input
-          name="street"
-          type="text"
-          value={street}
-          onChange={handleStreet}
-          onKeyDown={handleKeyDown}
-        />
-        <label>Stad</label>
-        <input
-          name="city"
-          type="text"
-          value={city}
-          onChange={handleCity}
-          onKeyDown={handleKeyDown}
-        />
-        <label>Postnummer</label>
-        <input
-          name="zipcode"
-          type="number"
-          value={zipcode}
-          onChange={handleZipcode}
-          onKeyDown={handleKeyDown}
-        />
-        <label>Telefon</label>
-        <input
-          name="phone"
-          type="tel"
-          value={phone}
-          onChange={handlePhone}
-          onKeyDown={handleKeyDown}
-        />
-        <Button colorScheme='yellow' size='xs' type="submit" onClick={submit}>
-          Skapa konto
-        </Button>
-        {accountCreationFailed ? (
-          <h4>Något av det du mattat in är fel!</h4>
-        ) : undefined}
-      </div>
+      <Flex justifyContent="center">
+        <Box
+          borderWidth={1}
+          boxShadow="md"
+          textAlign="center"
+          bg="white"
+          h="60em"
+          w="30em"
+          p={8}
+        >
+          <Heading mt={4} mb={12}>
+            Skapa ett konto
+          </Heading>
+          <FormLabel mt={2} mb={1}>Användarnamn</FormLabel>
+          <Input
+            id={nanoid()}
+            colorScheme="blue"
+            placeholder="Skriv in ett användarnamn"
+            name="username"
+            type="text"
+            value={username}
+            onChange={handleUsername}
+            onKeyDown={handleKeyDown}
+          />
+          <FormLabel mt={2} mb={1}>Lösenord</FormLabel>
+          <Input
+            id={nanoid()}
+            colorScheme="blue"
+            placeholder="Skriv in ett lösenord"
+            name="password"
+            type="password"
+            value={password}
+            onChange={handlePassword}
+            onKeyDown={handleKeyDown}
+          />
+          <FormLabel mt={2} mb={1}>E-post</FormLabel>
+          <Input
+            id={nanoid()}
+            colorScheme="blue"
+            placeholder="Skriv in din e-post"
+            name="email"
+            type="email"
+            value={email}
+            onChange={handleEmail}
+            onKeyDown={handleKeyDown}
+          />
+          <FormLabel mt={2} mb={1}>Förnamn</FormLabel>
+          <Input
+            id={nanoid()}
+            colorScheme="blue"
+            placeholder="Skriv in ditt förnamn"
+            name="firstName"
+            type="text"
+            value={firstName}
+            onChange={handleFirstName}
+            onKeyDown={handleKeyDown}
+          />
+          <FormLabel mt={2} mb={1}>Efternamn</FormLabel>
+          <Input
+            id={nanoid()}
+            colorScheme="blue"
+            placeholder="Skriv in ditt efternamn"
+            name="lastName"
+            type="text"
+            value={lastName}
+            onChange={handleLastName}
+            onKeyDown={handleKeyDown}
+          />
+          <FormLabel mt={2} mb={1}>Gatuadress</FormLabel>
+          <Input
+            id={nanoid()}
+            colorScheme="blue"
+            placeholder="Gatuadress"
+            name="street"
+            type="text"
+            value={street}
+            onChange={handleStreet}
+            onKeyDown={handleKeyDown}
+          />
+          <FormLabel mt={2} mb={1}>Stad</FormLabel>
+          <Input
+            id={nanoid()}
+            colorScheme="blue"
+            placeholder="Stad"
+            name="city"
+            type="text"
+            value={city}
+            onChange={handleCity}
+            onKeyDown={handleKeyDown}
+          />
+          <FormLabel mt={2} mb={1}>Postnummer</FormLabel>
+          <Input
+            id={nanoid()}
+            colorScheme="blue"
+            placeholder="Skriv in ditt postnummer"
+            type="number"
+            value={zipcode}
+            onChange={handleZipcode}
+            onKeyDown={handleKeyDown}
+          />
+          <FormLabel mt={2} mb={1}>Telefon</FormLabel>
+          <Input
+            id={nanoid()}
+            colorScheme="blue"
+            placeholder="Skriv in ditt telefonnummer"
+            name="phone"
+            type="tel"
+            value={phone}
+            onChange={handlePhone}
+            onKeyDown={handleKeyDown}
+          />
+          <Button
+            w="100%"
+            colorScheme="blue"
+            mt={8}
+            type="submit"
+            onClick={submit}
+          >
+            Skapa konto
+          </Button>
+          {accountCreationFailed ? (
+            <Heading mt={4} size="s" color="red">
+              Något av det du mattat in är fel!
+            </Heading>
+          ) : undefined}
+        </Box>
+      </Flex>
     </div>
   );
 }

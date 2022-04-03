@@ -16,8 +16,18 @@ create productListAdmin komponent.
 
 ## Styling:
 
-inspiration: ikea/gekås colors: yellow and blue.
-design shop.
+create account page.
+products page.
+home page.
+cart page.
+admin panel page.
+my profile page.
+admin product edit page
+product info page.
+
+### Styling extra:
+
+footer.
 
 ## Pre-requisites
 

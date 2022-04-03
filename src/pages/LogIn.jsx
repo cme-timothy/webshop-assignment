@@ -10,9 +10,9 @@ import {
   Flex,
   FormLabel,
   Heading,
-  FormControl,
+  Input,
+  Box,
 } from "@chakra-ui/react";
-import { Input, Box } from "@chakra-ui/react";
 import { nanoid } from "nanoid";
 
 function LogIn() {
@@ -75,41 +75,57 @@ function LogIn() {
         <title>Logga in - Tung Store</title>
       </Helmet>
       <Flex justifyContent="center">
-        <Box borderWidth={1} boxShadow="md" textAlign="center" bg="white" h="26em" w="30em" p={8}>
-            <Heading mt={4} mb={12}>Logga in till ditt Konto</Heading>
-            <FormLabel mt={2} mb={1}>Användarnamn</FormLabel>
-            <Input
-              id={nanoid()}
-              colorScheme="blue"
-              placeholder="Skriv in ditt användarnamn"
-              name="username"
-              type="text"
-              value={username}
-              onChange={handleUsername}
-              onKeyDown={handleKeyDown}
-            />
-            <FormLabel mt={2} mb={1}>Lösenord</FormLabel>
-            <Input
-              id={nanoid()}
-              colorScheme="blue"
-              placeholder="Skriv in ditt lösenord"
-              name="password"
-              type="password"
-              value={password}
-              onChange={handlePassword}
-              onKeyDown={handleKeyDown}
-            />
+        <Box
+          borderWidth={1}
+          boxShadow="md"
+          textAlign="center"
+          bg="white"
+          h="26em"
+          w="30em"
+          p={8}
+        >
+          <Heading mt={4} mb={12}>
+            Logga in till ditt Konto
+          </Heading>
+          <FormLabel mt={2} mb={1}>
+            Användarnamn
+          </FormLabel>
+          <Input
+            id={nanoid()}
+            colorScheme="blue"
+            placeholder="Skriv in ditt användarnamn"
+            name="username"
+            type="text"
+            value={username}
+            onChange={handleUsername}
+            onKeyDown={handleKeyDown}
+          />
+          <FormLabel mt={2} mb={1}>
+            Lösenord
+          </FormLabel>
+          <Input
+            id={nanoid()}
+            colorScheme="blue"
+            placeholder="Skriv in ditt lösenord"
+            name="password"
+            type="password"
+            value={password}
+            onChange={handlePassword}
+            onKeyDown={handleKeyDown}
+          />
           <Button
             w="100%"
             colorScheme="blue"
-            mt={8} 
+            mt={8}
             type="submit"
             onClick={authenticate}
           >
             Logga in
           </Button>
           {logInFailed ? (
-            <Heading mt={4} size="s" color="red">Ditt användarnamn eller lösenord är fel!</Heading>
+            <Heading mt={4} size="s" color="red">
+              Ditt användarnamn eller lösenord är fel!
+            </Heading>
           ) : undefined}
         </Box>
       </Flex>
