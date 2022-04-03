@@ -2,12 +2,12 @@ import axios from "axios";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { userData } from "../recoil/userData/atom";
-import { Button } from '@chakra-ui/react'
+import { Button, FormLabel, Heading, Input, Box } from "@chakra-ui/react";
+import { nanoid } from "nanoid";
 
 function EditUserProfile() {
   const [data, setData] = useRecoilState(userData);
   const [editProfile, setEditProfile] = useState(false);
-  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -19,8 +19,7 @@ function EditUserProfile() {
       {
         ...(email !== "" && { email: email }),
         ...(email === "" && { email: data.email }),
-        ...(username !== "" && { username: username }),
-        ...(username === "" && { username: data.username }),
+        username: data.username,
         ...(password !== "" && { password: password }),
         ...(password === "" && { password: data.password }),
         role: "user",
@@ -41,16 +40,10 @@ function EditUserProfile() {
     );
     setData(updatedUser.data);
     setEditProfile(!editProfile);
-    setUsername("");
     setPassword("");
     setFirstname("");
     setLastname("");
     setEmail("");
-  }
-
-  function handleUsername(event) {
-    const value = event.target.value;
-    setUsername(value);
   }
 
   function hanldePassword(event) {
@@ -84,62 +77,93 @@ function EditUserProfile() {
   }
 
   return (
-    <div>
-      <h2>Profil</h2>
-      <h4>Användarnamn: {data.username}</h4>
+    <Box borderWidth={1} boxShadow="md" bg="white" p={8}>
+      <Heading align="left" borderBottomWidth={1}>
+        Profil
+      </Heading>
+      <Heading mt="0.7em" fontSize="lg" p="0.2em 0 0.2em 0">
+        Förnamn
+      </Heading>
+      <FormLabel fontSize="lg" p="0.2em 0 0.2em 0">
+        {data.name.firstname}
+      </FormLabel>
       {editProfile === true && (
-        <input
+        <Input
+          mb="1em"
+          id={nanoid()}
+          colorScheme="blue"
           type="text"
-          value={username}
-          onChange={handleUsername}
+          placeholder="Skriv in ditt förnamn"
+          value={firstname}
+          onChange={handlefirstname}
           onKeyDown={handleKeyDown}
-        ></input>
+        ></Input>
       )}
-      <h4>Lösenord: Av säkerhetsskäll visas inte lösenord</h4>
+      <Heading fontSize="lg" p="0.2em 0 0.2em 0">
+        Efternamn
+      </Heading>
+      <FormLabel fontSize="lg" p="0.2em 0 0.2em 0">
+        {data.name.lastname}
+      </FormLabel>
       {editProfile === true && (
-        <input
+        <Input
+          mb="1em"
+          id={nanoid()}
+          colorScheme="blue"
+          type="text"
+          placeholder="Skriv in ditt efternamn"
+          value={lastname}
+          onChange={handleLastname}
+          onKeyDown={handleKeyDown}
+        ></Input>
+      )}
+      <Heading fontSize="lg" p="0.2em 0 0.2em 0">
+        Lösenord
+      </Heading>
+      <FormLabel fontSize="lg" p="0.2em 0 0.2em 0">
+        Av säkerhetsskäll visas inte lösenord
+      </FormLabel>
+      {editProfile === true && (
+        <Input
+          mb="1em"
+          id={nanoid()}
+          colorScheme="blue"
+          placeholder="Skriv in nytt lösenord"
           type="password"
           value={password}
           onChange={hanldePassword}
           onKeyDown={handleKeyDown}
-        ></input>
+        ></Input>
       )}
-      <h4>
-        Namn: {data.name.firstname} {data.name.lastname}
-      </h4>
+
+      <Heading fontSize="lg" p="0.2em 0 0.2em 0">
+        E-post
+      </Heading>
+      <FormLabel fontSize="lg" p="0.2em 0 0.2em 0">
+        {data.email}
+      </FormLabel>
       {editProfile === true && (
-        <input
-          type="text"
-          value={firstname}
-          onChange={handlefirstname}
-          onKeyDown={handleKeyDown}
-        ></input>
-      )}
-      {editProfile === true &&
-        ((<label>Efternamn</label>),
-        (
-          <input
-            type="text"
-            value={lastname}
-            onChange={handleLastname}
-            onKeyDown={handleKeyDown}
-          ></input>
-        ))}
-      <h4>E-post: {data.email}</h4>
-      {editProfile === true && (
-        <input
+        <Input
+          mb="1em"
+          id={nanoid()}
+          colorScheme="blue"
           type="email"
+          placeholder="Skriv in din e-post"
           value={email}
           onChange={handleEmail}
           onKeyDown={handleKeyDown}
-        ></input>
+        ></Input>
       )}
       {editProfile ? (
-        <Button colorScheme='yellow' size='xs' onClick={submit}>Uppdatera profilen</Button>
+        <Button w="100%" colorScheme="blue" mt={2} onClick={submit}>
+          Uppdatera profilen
+        </Button>
       ) : (
-        <Button colorScheme='yellow' size='xs' onClick={showInput}>Redigera profil</Button>
+        <Button w="100%" colorScheme="blue" mt={2} onClick={showInput}>
+          Redigera profil
+        </Button>
       )}
-    </div>
+    </Box>
   );
 }
 

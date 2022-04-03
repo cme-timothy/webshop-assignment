@@ -6,12 +6,12 @@ import { auth } from "../recoil/auth/atom";
 import { userData } from "../recoil/userData/atom";
 import EditUserProfile from "../components/EditUserProfile";
 import EditUserAddress from "../components/EditUserAddress";
-import { Button } from '@chakra-ui/react'
+import { Button, Flex, Heading, Grid, GridItem } from "@chakra-ui/react";
 
 function MyProfile() {
   const navigate = useNavigate();
   const [token, setToken] = useRecoilState(auth);
-  const setData = useSetRecoilState(userData);
+  const [data, setData] = useRecoilState(userData);
 
   useEffect(() => {
     if (token.length === 0) {
@@ -29,16 +29,23 @@ function MyProfile() {
     return <h3>Du har inte tillgång till den här sidan</h3>;
 
   return (
-    <div>
+    <Flex flexDirection="column">
       <Helmet>
         <title>Min profil - Tung Store</title>
       </Helmet>
-      <h3>Min profil</h3>
-      <h3>Välkommen till din profilsida</h3>
-      <EditUserProfile />
-      <EditUserAddress />
-      <Button colorScheme='yellow' size='xs' onClick={logOut}>Logga ut</Button>
-    </div>
+      <Heading
+      alignSelf="center"
+        mt={4}
+        mb={12}
+      >{`Hej! ${data.name.firstname}, välkommen till din profilsida`}</Heading>
+      <Grid gridTemplateColumns="repeat( auto-fit, minmax(300px, 1fr) )" gap={5}>
+        <EditUserProfile />
+        <EditUserAddress />
+      </Grid>
+      <Button w="100%" colorScheme="blue" mt={8} onClick={logOut}>
+        Logga ut
+      </Button>
+    </Flex>
   );
 }
 

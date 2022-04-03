@@ -2,7 +2,8 @@ import { userData } from "../recoil/userData/atom";
 import { useRecoilState } from "recoil";
 import axios from "axios";
 import { useState } from "react";
-import { Button } from '@chakra-ui/react'
+import { Button, FormLabel, Heading, Input, Box, Flex } from "@chakra-ui/react";
+import { nanoid } from "nanoid";
 
 function EditUserAddress() {
   const [data, setData] = useRecoilState(userData);
@@ -76,50 +77,98 @@ function EditUserAddress() {
   }
 
   return (
-    <div>
-      <h2>Adress</h2>
-      <h4>Gatuadress: {data.address.street}</h4>
+    <Box borderWidth={1} boxShadow="md" bg="white" p={8}>
+      <Heading align="left" borderBottomWidth={1}>
+        Adress
+      </Heading>
+      <Heading mt="0.7em" fontSize="lg" p="0.2em 0 0.2em 0">
+        Gatuadress
+      </Heading>
+      <FormLabel fontSize="lg" p="0.2em 0 0.2em 0">
+        {data.address.street}
+      </FormLabel>
       {editAddress === true && (
-        <input
+        <Input
+          mb="1em"
+          id={nanoid()}
+          colorScheme="blue"
           type="text"
+          placeholder="Gatuadress"
           value={street}
           onChange={handleStreet}
           onKeyDown={handleKeyDown}
-        ></input>
+        ></Input>
       )}
-      <h4>Stad: {data.address.city}</h4>
+      <Heading fontSize="lg" p="0.2em 0 0.2em 0">
+        Stad
+      </Heading>
+      <FormLabel fontSize="lg" p="0.2em 0 0.2em 0">
+        {data.address.city}
+      </FormLabel>
       {editAddress === true && (
-        <input
+        <Input
+          mb="1em"
+          id={nanoid()}
+          colorScheme="blue"
           type="text"
+          placeholder="Stad"
           value={city}
           onChange={handleCity}
           onKeyDown={handleKeyDown}
-        ></input>
+        ></Input>
       )}
-      <h4>Postnummer: {data.address.zipcode}</h4>
+      <Heading fontSize="lg" p="0.2em 0 0.2em 0">
+        Postnummer
+      </Heading>
+      <FormLabel fontSize="lg" p="0.2em 0 0.2em 0">
+        {data.address.zipcode}
+      </FormLabel>
       {editAddress === true && (
-        <input
+        <Input
+          mb="1em"
+          id={nanoid()}
+          colorScheme="blue"
+          placeholder="Skriv in ditt postnummer"
           type="number"
           value={zipcode}
           onChange={handleZipcode}
           onKeyDown={handleKeyDown}
-        ></input>
+        ></Input>
       )}
-      <h4>Telefonnummer: {data.phone}</h4>
+      <Heading fontSize="lg" p="0.2em 0 0.2em 0">
+        Telefonnummer
+      </Heading>
+      <FormLabel fontSize="lg" p="0.2em 0 0.2em 0">
+        {data.phone}
+      </FormLabel>
       {editAddress === true && (
-        <input
+        <Input
+          mb="1em"
+          id={nanoid()}
+          colorScheme="blue"
+          placeholder="Skrin in ditt telefonnummer"
           type="tel"
           value={phone}
           onChange={handlePhone}
           onKeyDown={handleKeyDown}
-        ></input>
+        ></Input>
       )}
       {editAddress ? (
-        <Button colorScheme='yellow' size='xs' onClick={submit}>Uppdatera adressen</Button>
+        <Button
+          alignSelf="flex-end"
+          w="100%"
+          colorScheme="blue"
+          mt={2}
+          onClick={submit}
+        >
+          Uppdatera adressen
+        </Button>
       ) : (
-        <Button colorScheme='yellow' size='xs' onClick={showInput}>Redigera adress</Button>
+        <Button w="100%" colorScheme="blue" mt={2} onClick={showInput}>
+          Redigera adress
+        </Button>
       )}
-    </div>
+    </Box>
   );
 }
 
