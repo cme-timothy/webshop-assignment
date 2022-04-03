@@ -12,6 +12,7 @@ import { products } from "../recoil/products/atom";
 import { useSetRecoilState } from "recoil";
 import axios from "axios";
 import EditProductDetails from "./EditProductDetails";
+import { Container } from "@chakra-ui/react";
 
 function Main() {
   const setProductsList = useSetRecoilState(products);
@@ -25,7 +26,7 @@ function Main() {
   }, []);
 
   return (
-    <div>
+    <Container as="main" pt="8em">
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/produkter" element={<ProductList />} />
@@ -40,7 +41,7 @@ function Main() {
         />
         <Route path="/minprofil" element={<MyProfile />} />
       </Routes>
-    </div>
+    </Container>
   );
 }
 

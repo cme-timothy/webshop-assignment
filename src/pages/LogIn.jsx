@@ -13,6 +13,7 @@ import {
   FormControl,
 } from "@chakra-ui/react";
 import { Input, Box } from "@chakra-ui/react";
+import { nanoid } from "nanoid";
 
 function LogIn() {
   const [username, setUsername] = useState("");
@@ -75,10 +76,10 @@ function LogIn() {
       </Helmet>
       <Flex justifyContent="center">
         <Box borderWidth={1} boxShadow="md" textAlign="center" bg="white" h="26em" w="30em" p={8}>
-          <FormControl>
             <Heading mt={4} mb={12}>Logga in till ditt Konto</Heading>
             <FormLabel mt={2} mb={1}>Användarnamn</FormLabel>
             <Input
+              id={nanoid()}
               colorScheme="blue"
               placeholder="Skriv in ditt användarnamn"
               name="username"
@@ -89,7 +90,7 @@ function LogIn() {
             />
             <FormLabel mt={2} mb={1}>Lösenord</FormLabel>
             <Input
-              id="field-2"
+              id={nanoid()}
               colorScheme="blue"
               placeholder="Skriv in ditt lösenord"
               name="password"
@@ -98,7 +99,6 @@ function LogIn() {
               onChange={handlePassword}
               onKeyDown={handleKeyDown}
             />
-          </FormControl>
           <Button
             w="100%"
             colorScheme="blue"
