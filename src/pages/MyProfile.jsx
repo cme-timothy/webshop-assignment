@@ -1,12 +1,12 @@
 import { Helmet } from "react-helmet-async";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useRecoilState, useSetRecoilState } from "recoil";
+import { useRecoilState } from "recoil";
 import { auth } from "../recoil/auth/atom";
 import { userData } from "../recoil/userData/atom";
 import EditUserProfile from "../components/EditUserProfile";
 import EditUserAddress from "../components/EditUserAddress";
-import { Button, Flex, Heading, Grid, GridItem } from "@chakra-ui/react";
+import { Button, Flex, Heading, Grid } from "@chakra-ui/react";
 
 function MyProfile() {
   const navigate = useNavigate();
@@ -34,11 +34,14 @@ function MyProfile() {
         <title>Min profil - Tung Store</title>
       </Helmet>
       <Heading
-      alignSelf="center"
+        alignSelf="center"
         mt={4}
         mb={12}
       >{`Hej! ${data.name.firstname}, välkommen till din profilsida`}</Heading>
-      <Grid gridTemplateColumns="repeat( auto-fit, minmax(300px, 1fr) )" gap={5}>
+      <Grid
+        gridTemplateColumns="repeat( auto-fit, minmax(300px, 1fr) )"
+        gap={5}
+      >
         <EditUserProfile />
         <EditUserAddress />
       </Grid>

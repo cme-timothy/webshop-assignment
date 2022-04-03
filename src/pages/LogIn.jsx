@@ -5,14 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
 import { auth } from "../recoil/auth/atom";
 import { userData } from "../recoil/userData/atom";
-import {
-  Button,
-  Flex,
-  FormLabel,
-  Heading,
-  Input,
-  Box,
-} from "@chakra-ui/react";
+import { Button, Flex, FormLabel, Heading, Input, Box } from "@chakra-ui/react";
 import { nanoid } from "nanoid";
 
 function LogIn() {

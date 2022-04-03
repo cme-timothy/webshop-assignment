@@ -4,7 +4,13 @@ import { useRecoilValue } from "recoil";
 import { productsInCart } from "../recoil/cart/atom";
 import { auth } from "../recoil/auth/atom";
 import { userData } from "../recoil/userData/atom";
-import { Flex, IconButton, Heading, HStack, StackDivider } from "@chakra-ui/react";
+import {
+  Flex,
+  IconButton,
+  Heading,
+  HStack,
+  StackDivider,
+} from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 
 function Header() {
@@ -67,8 +73,9 @@ function Header() {
         ml="1em"
         p="0.4em"
       >
-        Tung-Store
+        <Link to="/">Tung-Store </Link>
       </Heading>
+
       <Heading
         display={menu === "none" && "none"}
         zIndex={3}
@@ -76,8 +83,16 @@ function Header() {
         ml="1em"
         p="0.56668em"
       >
-        Tung-Store
+        <Link
+          onClick={() => {
+            setMenu("none");
+          }}
+          to="/"
+        >
+          Tung-Store
+        </Link>
       </Heading>
+
       <Flex mr="1em" display={["none", "none", "none", "flex", "flex"]}>
         <HStack fontSize="lg" spacing={3} divider={<StackDivider />} as="nav">
           <Link pr="5em" to="/">

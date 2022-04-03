@@ -12,22 +12,23 @@ This is a simple webshop built for for my last react assignment. This project wa
 
 more error handling.
 make more components in createaccount.
-create productListAdmin komponent.
 
 ## Styling:
 
-create account page.
 products page.
 home page.
 cart page.
 admin panel page.
-my profile page.
 admin product edit page
 product info page.
 
 ### Styling extra:
 
+add maxwidth to header.
+logga ut menubar.
+add blue when hover on header menu links.
 footer.
+admin userlist and cartlist grid.
 
 ## Pre-requisites
 

@@ -2,7 +2,7 @@ import { userData } from "../recoil/userData/atom";
 import { useRecoilState } from "recoil";
 import axios from "axios";
 import { useState } from "react";
-import { Button, FormLabel, Heading, Input, Box, Flex } from "@chakra-ui/react";
+import { Button, FormLabel, Heading, Input, Box } from "@chakra-ui/react";
 import { nanoid } from "nanoid";
 
 function EditUserAddress() {

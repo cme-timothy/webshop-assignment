@@ -5,15 +5,7 @@ import axios from "axios";
 import { useSetRecoilState } from "recoil";
 import { auth } from "../recoil/auth/atom";
 import { userData } from "../recoil/userData/atom";
-import {
-  Button,
-  Flex,
-  FormLabel,
-  Heading,
-  FormControl,
-  Input,
-  Box,
-} from "@chakra-ui/react";
+import { Button, Flex, FormLabel, Heading, Input, Box } from "@chakra-ui/react";
 import { nanoid } from "nanoid";
 
 function CreateAccount() {
@@ -154,7 +146,9 @@ function CreateAccount() {
           <Heading mt={4} mb={12}>
             Skapa ett konto
           </Heading>
-          <FormLabel mt={2} mb={1}>Användarnamn</FormLabel>
+          <FormLabel mt={2} mb={1}>
+            Användarnamn
+          </FormLabel>
           <Input
             id={nanoid()}
             colorScheme="blue"
@@ -165,7 +159,9 @@ function CreateAccount() {
             onChange={handleUsername}
             onKeyDown={handleKeyDown}
           />
-          <FormLabel mt={2} mb={1}>Lösenord</FormLabel>
+          <FormLabel mt={2} mb={1}>
+            Lösenord
+          </FormLabel>
           <Input
             id={nanoid()}
             colorScheme="blue"
@@ -176,7 +172,9 @@ function CreateAccount() {
             onChange={handlePassword}
             onKeyDown={handleKeyDown}
           />
-          <FormLabel mt={2} mb={1}>E-post</FormLabel>
+          <FormLabel mt={2} mb={1}>
+            E-post
+          </FormLabel>
           <Input
             id={nanoid()}
             colorScheme="blue"
@@ -187,7 +185,9 @@ function CreateAccount() {
             onChange={handleEmail}
             onKeyDown={handleKeyDown}
           />
-          <FormLabel mt={2} mb={1}>Förnamn</FormLabel>
+          <FormLabel mt={2} mb={1}>
+            Förnamn
+          </FormLabel>
           <Input
             id={nanoid()}
             colorScheme="blue"
@@ -198,7 +198,9 @@ function CreateAccount() {
             onChange={handleFirstName}
             onKeyDown={handleKeyDown}
           />
-          <FormLabel mt={2} mb={1}>Efternamn</FormLabel>
+          <FormLabel mt={2} mb={1}>
+            Efternamn
+          </FormLabel>
           <Input
             id={nanoid()}
             colorScheme="blue"
@@ -209,7 +211,9 @@ function CreateAccount() {
             onChange={handleLastName}
             onKeyDown={handleKeyDown}
           />
-          <FormLabel mt={2} mb={1}>Gatuadress</FormLabel>
+          <FormLabel mt={2} mb={1}>
+            Gatuadress
+          </FormLabel>
           <Input
             id={nanoid()}
             colorScheme="blue"
@@ -220,7 +224,9 @@ function CreateAccount() {
             onChange={handleStreet}
             onKeyDown={handleKeyDown}
           />
-          <FormLabel mt={2} mb={1}>Stad</FormLabel>
+          <FormLabel mt={2} mb={1}>
+            Stad
+          </FormLabel>
           <Input
             id={nanoid()}
             colorScheme="blue"
@@ -231,7 +237,9 @@ function CreateAccount() {
             onChange={handleCity}
             onKeyDown={handleKeyDown}
           />
-          <FormLabel mt={2} mb={1}>Postnummer</FormLabel>
+          <FormLabel mt={2} mb={1}>
+            Postnummer
+          </FormLabel>
           <Input
             id={nanoid()}
             colorScheme="blue"
@@ -241,7 +249,9 @@ function CreateAccount() {
             onChange={handleZipcode}
             onKeyDown={handleKeyDown}
           />
-          <FormLabel mt={2} mb={1}>Telefon</FormLabel>
+          <FormLabel mt={2} mb={1}>
+            Telefon
+          </FormLabel>
           <Input
             id={nanoid()}
             colorScheme="blue"
