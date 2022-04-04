@@ -15,10 +15,13 @@ make more components in createaccount.
 
 ### Styling extra:
 
-logga ut menubar.
-logo and menu resize correct.
-add blue when hover on header menu links.
-footer.
+logout on in the menus.
+logo and menu links dont resize correctly.
+add blue on hover for header menu links.
+create a footer.
+delete produkt button in cart text not aligned correctly.
+link does not extend on go to cart button.
+home page needs to be more fleshed out especially on mobile screen sizes.
 
 ## Pre-requisites
 
