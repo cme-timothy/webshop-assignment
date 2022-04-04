@@ -45,13 +45,10 @@ function ProductList() {
       </Helmet>
       <Flex
         flexDir="column"
-        ml="0.5em"
-        mr="0.5.5em"
         justifyContent={screenLarge ? "start" : "center"}
       >
         <Heading
           alignSelf={screenLarge ? "start" : "center"}
-          size="lg"
           mt={4}
           mb={12}
         >

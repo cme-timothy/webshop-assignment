@@ -4,7 +4,7 @@ import axios from "axios";
 import { auth } from "../recoil/auth/atom";
 import { useRecoilValue } from "recoil";
 import { Button } from "@chakra-ui/react";
-import { Box, Text, Image, Heading } from "@chakra-ui/react";
+import { Box, Text, Image, Heading, Input } from "@chakra-ui/react";
 
 function EditProductDetails() {
   const [product, setProduct] = useState([]);
@@ -81,36 +81,76 @@ function EditProductDetails() {
     return <h3>Du har inte tillgång till den här sidan</h3>;
 
   return (
-    <div>
-      <h2>Redigera produkt information</h2>
-      <img src={product.image} alt="" />
-      <h2>{product.title}</h2>
-      <input
-        type="text"
-        value={title}
-        onChange={handleTitle}
-        onKeyDown={handleKeyDown}
+    <Box maxW="500px" h="270px" mr="auto" ml="auto">
+      <Heading mt={4} mb={12} align="center">
+        Redigera produkt information
+      </Heading>
+      <Image
+        w="300px"
+        h="auto"
+        p="1em"
+        ml="auto"
+        mr="auto"
+        pb={0}
+        src={product.image}
+        alt="produkt"
       />
-      <p>{product.description}</p>
-      <input
-        type="text"
-        value={description}
-        onChange={handleDescription}
-        onKeyDown={handleKeyDown}
-      />
-      <p>{product.price} €</p>
-      <input
-        type="number"
-        min="0"
-        value={price}
-        onChange={handlePrice}
-        onKeyDown={handleKeyDown}
-      />
-      <Button colorScheme='yellow' size='xs' type="submit" onClick={submit}>
+      <Box p="3" mt="1em">
+        <Heading mb="0.5em">{product.title}</Heading>
+        <Heading fontSize="lg" mb="0.5em">
+          Produkt namn
+        </Heading>
+        <Input
+          placeholder="Ändra titeln här!"
+          type="text"
+          value={title}
+          onChange={handleTitle}
+          onKeyDown={handleKeyDown}
+        />
+        <Text mt="1em" mb="1em">
+          {product.description}
+        </Text>
+        <Heading fontSize="lg" mb="0.5em">
+          Produkt beskrivning
+        </Heading>
+        <Input
+          placeholder="Ändra beskrivningen här!"
+          type="text"
+          value={description}
+          onChange={handleDescription}
+          onKeyDown={handleKeyDown}
+        />
+        <Heading mt="1em" mb="0.5em" size="lg" align="center">
+          {product.price} €
+        </Heading>
+        <Heading fontSize="lg" mb="0.5em">
+          Produkt priset
+        </Heading>
+        <Input
+          placeholder="Ändra priset här!"
+          type="number"
+          min="0"
+          value={price}
+          onChange={handlePrice}
+          onKeyDown={handleKeyDown}
+        />
+      </Box>
+      <Button
+        w="100%"
+        colorScheme="yellow"
+        mt={4}
+        mb="2em"
+        type="submit"
+        onClick={submit}
+      >
         Uppdatera
       </Button>
-      {noUpdate === true && <h3>Inga förändringar har gjorts</h3>}
-    </div>
+      {noUpdate === true && (
+        <Heading mt="-1.5em" pb="1em" align="center" size="s" color="red">
+          Inga förändringar har gjorts
+        </Heading>
+      )}
+    </Box>
   );
 }
 
