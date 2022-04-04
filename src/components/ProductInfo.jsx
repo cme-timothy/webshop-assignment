@@ -93,8 +93,8 @@ function ProductInfo() {
       />
       <Box p="3" mt="1em">
         <Heading>{product.title}</Heading>
-        <Text>{product.description}</Text>
-        <Heading mt="1em" size="lg" align="center">
+        <Text mt="1em">{product.description}</Text>
+        <Heading mt="0.5em" size="lg" align="center">
           {product.price} €
         </Heading>
       </Box>
@@ -104,13 +104,13 @@ function ProductInfo() {
           mb="2em"
           w="100%"
           colorScheme="yellow"
-          mt={4}
+          mt={3}
           onClick={add}
         >
           <Link to="/varukorg">Gå till varukorgen</Link>
         </Button>
       ) : (
-        <Button mb="2em" w="100%" colorScheme="blue" mt={4} onClick={add}>
+        <Button mb="2em" w="100%" colorScheme="blue" mt={3} onClick={add}>
           Lägg i varukorgen"
         </Button>
       )}
