@@ -15,9 +15,6 @@ make more components in createaccount.
 
 ## Styling:
 
-home page.
-admin product edit page
-
 ### Styling extra:
 
 logga ut menubar.
