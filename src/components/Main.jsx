@@ -26,7 +26,7 @@ function Main() {
   }, []);
 
   return (
-    <Container as="main" maxW="104em" pt="8em">
+    <Container as="main" maxW="104em" pt="3em">
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/produkter" element={<ProductList />} />

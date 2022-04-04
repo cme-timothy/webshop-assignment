@@ -5,11 +5,13 @@ import { products } from "../recoil/products/atom";
 import { useRecoilState } from "recoil";
 import axios from "axios";
 import { Button } from "@chakra-ui/react";
-import { SimpleGrid, Heading } from "@chakra-ui/react";
+import { SimpleGrid, Heading, Flex, Box } from "@chakra-ui/react";
+import { useMediaQuery } from "@chakra-ui/react";
 
 function ProductList() {
   const [productsList, setProductsList] = useRecoilState(products);
   const [categories, setCategories] = useState([]);
+  const [screenLarge] = useMediaQuery("(min-width: 1740px)");
 
   useEffect(() => {
     async function getCategories() {
@@ -41,35 +43,57 @@ function ProductList() {
       <Helmet>
         <title>Alla produkter - Tung Store</title>
       </Helmet>
-      <Heading mt={4} mb={12}>
-        Våra klipp
-      </Heading>
-      <Heading size="l" mt={4}>
-        Filter:
-      </Heading>
-      {categories.map((data) => {
-        return (
-          <Button
-            _focus={{ boxShadow: "none", bg: "yellow.500" }}
-            borderRadius={0}
-            colorScheme="yellow"
-            size="xs"
-            key={data}
-            onClick={() => filterCategories(data)}
-          >
-            {data}
-          </Button>
-        );
-      })}
-      <Button
-        borderRadius={0}
-        colorScheme="yellow"
-        size="xs"
-        onClick={filterAllProducts}
+      <Flex
+        flexDir="column"
+        ml="0.5em"
+        mr="0.5.5em"
+        justifyContent={screenLarge ? "start" : "center"}
       >
-        all
-      </Button>
-      <SimpleGrid mt="2em" mb="2em" align="center" minChildWidth="400px" spacing={1}>
+        <Heading
+          alignSelf={screenLarge ? "start" : "center"}
+          size="lg"
+          mt={4}
+          mb={12}
+        >
+          Våra klipp
+        </Heading>
+        <Flex flexDir="column" alignItems={screenLarge ? "start" : "center"}>
+          <Heading alignSelf={screenLarge ? "start" : "center"} size="l" mt={4}>
+            Filter
+          </Heading>
+          <Box>
+            {categories.map((data) => {
+              return (
+                <Button
+                  _focus={{ boxShadow: "none", bg: "yellow.500" }}
+                  borderRadius={0}
+                  colorScheme="yellow"
+                  size="xs"
+                  key={data}
+                  onClick={() => filterCategories(data)}
+                >
+                  {data}
+                </Button>
+              );
+            })}
+            <Button
+              borderRadius={0}
+              colorScheme="yellow"
+              size="xs"
+              onClick={filterAllProducts}
+            >
+              all
+            </Button>
+          </Box>
+        </Flex>
+      </Flex>
+      <SimpleGrid
+        mt="2em"
+        mb="2em"
+        align="center"
+        minChildWidth="350px"
+        spacing={1}
+      >
         {productsList.map((data) => {
           return <ProductLink key={data.id} data={data} />;
         })}

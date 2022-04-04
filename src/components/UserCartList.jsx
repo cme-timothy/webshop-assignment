@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { products } from "../recoil/products/atom";
-import { Text, Flex, Heading, Box, Container, SimpleGrid } from "@chakra-ui/react";
+import { Text, Flex, Heading, Box, SimpleGrid } from "@chakra-ui/react";
 
 function UserCartList() {
   const [showCarts, setShowCarts] = useState(false);

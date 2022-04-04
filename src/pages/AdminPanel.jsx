@@ -40,7 +40,7 @@ function AdminPanel() {
       <ProductListAdmin />
       <UserList />
       <UserCartList />
-      <Button w="100%" colorScheme="blue" mt={8} onClick={logOut}>
+      <Button mb="2em" w="100%" colorScheme="blue" mt={8} onClick={logOut}>
         Logga ut
       </Button>
     </Flex>

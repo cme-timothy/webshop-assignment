@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { nanoid } from "nanoid";
-import { Text, Flex, Heading, Box, Container, SimpleGrid } from "@chakra-ui/react";
+import { Flex, Heading, Box, SimpleGrid } from "@chakra-ui/react";
 
 function UserList() {
   const [showUsers, setShowUsers] = useState(false);
@@ -29,7 +29,7 @@ function UserList() {
             bg="blue.500"
             onClick={allUsers}
           >
-            Göm listan med användare{" "}
+            Göm listan med användare
           </Heading>
         </Box>
       ) : (
@@ -50,7 +50,6 @@ function UserList() {
       <SimpleGrid minChildWidth="300px">
         {showUsers === true &&
           users.map((data) => {
-            console.log(data.id);
             return (
               <Box
                 m={0}

@@ -1,6 +1,15 @@
 import { useRecoilValue } from "recoil";
 import { productsInCart } from "../recoil/cart/atom";
-import { Button } from '@chakra-ui/react'
+import {
+  Text,
+  Flex,
+  Box,
+  Container,
+  Button,
+  Image,
+  Input,
+  Heading,
+} from "@chakra-ui/react";
 
 function Checkout() {
   const customerCart = useRecoilValue(productsInCart);
@@ -21,11 +30,18 @@ function Checkout() {
 
   return (
     <div>
-      <h2>Frakt</h2>
-      <h2>0 €</h2>
-      <h2>Summa</h2>
-      <h2>{`${twoDecimals} €`}</h2>
-      <Button colorScheme='yellow' size='xs'>Till kassan</Button>
+      <Box h="3em">
+        <Flex borderRadius={5} bg="gray.100" justifyContent="space-between" alignItems="center">
+          <Text p="1em">Summa</Text>
+          <Text mr="1em">{`${twoDecimals} €`}</Text>
+        </Flex>
+      </Box>
+      <Heading size="l" align="center" mt="1.5em" mb="0.7em" color="green.300">
+        Alltid fri frakt!
+      </Heading>
+      <Button mb="2em" w="100%" colorScheme="blue" type="submit">
+        Till kassan
+      </Button>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { Box, Container, Text, Image } from "@chakra-ui/react";
 
 function ProductLink(props) {
   return (
-    <Box w="400px" h="270px" mr="auto" ml="auto">
+    <Box w="350px" h="270px" mr="auto" ml="auto">
       <Link key={props.data.id} to={`/produkter/${props.data.id}`}>
         <Image
           w="auto"

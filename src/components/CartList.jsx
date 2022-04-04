@@ -2,11 +2,21 @@ import { Link } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { productsInCart } from "../recoil/cart/atom";
 import { useState } from "react";
-import { Button } from "@chakra-ui/react";
+import {
+  Text,
+  Flex,
+  Box,
+  Container,
+  Button,
+  Image,
+  Input,
+} from "@chakra-ui/react";
+import { useMediaQuery } from "@chakra-ui/react";
 
 function CartList(props) {
   const [cart, setCart] = useRecoilState(productsInCart);
   const [count, setCount] = useState(props.data.amount);
+  const [screenLarge] = useMediaQuery("(min-width: 810px)");
 
   const objSerialized = JSON.stringify(cart);
   localStorage.setItem("userSave", objSerialized);
@@ -61,40 +71,62 @@ function CartList(props) {
   }
 
   return (
-    <div>
-      <img src={props.data.image} alt="" />
-      <Link to={`/produkter/${props.data.id}`}>{props.data.title}</Link>
-      <h2>{props.data.price} €</h2>
-      <Button
-        colorScheme="yellow"
-        size="xs"
-        onClick={() => {
-          add(false);
-        }}
+    <Flex
+      mb={6}
+      flexDir={screenLarge ? "row" : "column"}
+      w="100%"
+      justifyContent="space-between"
+      alignItems="center"
+    >
+      <Image w="auto" h="150px" p="1em" src={props.data.image} alt="" />
+      <Container
+        w={screenLarge ? "20em" : "16em"}
+        mb={screenLarge ? "0" : "0.5em"}
+        align={screenLarge ? "start" : "center"}
+        color="blue.500"
+        _hover={{ color: "blue.700" }}
       >
-        -
-      </Button>
-      <input
-        type="number"
-        min="1"
-        max="99"
-        readOnly
-        value={count}
-        onChange={handleChange}
-      ></input>
-      <Button
-        colorScheme="yellow"
-        size="xs"
-        onClick={() => {
-          add(true);
-        }}
-      >
-        +
-      </Button>
-      <Button colorScheme="yellow" size="xs" onClick={handleClick}>
-        Ta bort produkt
-      </Button>
-    </div>
+        <Link to={`/produkter/${props.data.id}`}>{props.data.title}</Link>
+      </Container>
+      <Flex flexDir="column">
+        <Text mr="1em" align="right">
+          {props.data.price} €
+        </Text>
+        <Box align="right" mb={screenLarge ? "0" : "0.5em"}>
+          <Button
+            colorScheme="yellow"
+            size="xs"
+            onClick={() => {
+              add(false);
+            }}
+          >
+            -
+          </Button>
+          <Input
+            w="3.5em"
+            h="24px"
+            type="number"
+            min="1"
+            max="99"
+            readOnly
+            value={count}
+            onChange={handleChange}
+          ></Input>
+          <Button
+            colorScheme="yellow"
+            size="xs"
+            onClick={() => {
+              add(true);
+            }}
+          >
+            +
+          </Button>
+          <Button colorScheme="yellow" size="xs" onClick={handleClick}>
+            Ta bort produkt
+          </Button>
+        </Box>
+      </Flex>
+    </Flex>
   );
 }
 

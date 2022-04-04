@@ -51,11 +51,13 @@ function Header() {
 
   return (
     <Flex
+      borderBottomWidth={1}
       as="header"
-      pos="fixed"
+      maxW="108em"
       w="100%"
       bg="white"
-      zIndex={1}
+      mr="auto"
+      ml="auto"
       justifyContent="space-between"
       alignItems="center"
       pt="1em"
@@ -70,7 +72,7 @@ function Header() {
         borderWidth={5}
         borderColor="yellow.300"
         color="yellow.300"
-        ml="1em"
+        ml="0.5em"
         p="0.4em"
       >
         <Link to="/">Tung-Store </Link>
@@ -80,8 +82,8 @@ function Header() {
         display={menu === "none" && "none"}
         zIndex={3}
         color="yellow.300"
-        ml="1em"
-        p="0.56668em"
+        ml="0.5em"
+        p="0.54em"
       >
         <Link
           onClick={() => {

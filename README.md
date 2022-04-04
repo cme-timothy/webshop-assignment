@@ -16,14 +16,13 @@ make more components in createaccount.
 ## Styling:
 
 home page.
-cart page.
 admin product edit page
 product info page.
 
 ### Styling extra:
 
-add maxwidth to header.
 logga ut menubar.
+logo resize correct.
 add blue when hover on header menu links.
 footer.
 
