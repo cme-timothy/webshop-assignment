@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { nanoid } from "nanoid";
-import { Text, Flex, Heading, Box, Container } from "@chakra-ui/react";
+import { Text, Flex, Heading, Box, Container, SimpleGrid } from "@chakra-ui/react";
 
 function UserList() {
   const [showUsers, setShowUsers] = useState(false);
@@ -21,6 +21,7 @@ function UserList() {
             w="100%"
             alignSelf="start"
             borderWidth={1}
+            borderBottomWidth={0}
             cursor="pointer"
             fontSize="xl"
             p="1.5em"
@@ -36,6 +37,7 @@ function UserList() {
           w="100%"
           alignSelf="start"
           borderWidth={1}
+          borderBottomWidth={0}
           cursor="pointer"
           fontSize="xl"
           p="1.5em"
@@ -45,26 +47,29 @@ function UserList() {
           Visa en lista med användare
         </Heading>
       )}
-      {showUsers === true &&
-        users.map((data) => {
-          return (
-            <Container
-              m={0}
-              borderWidth={1}
-              borderTopWidth={0}
-              p="1em"
-              key={data.id + nanoid()}
-            >
-              <h3 key={data.id + nanoid()}>Användar Id: {data.Id}</h3>
-              <h3 key={data.id + nanoid()}>Användarnamn: {data.username}</h3>
-              <h3 key={data.id + nanoid()}>
-                Namn: {data.name.firstname} {data.name.lastname}
-              </h3>
-              <h3 key={data.id + nanoid()}>E-post: {data.email}</h3>
-              <h3 key={data.id + nanoid()}>Telefonnummer: {data.phone}</h3>
-            </Container>
-          );
-        })}
+      <SimpleGrid minChildWidth="300px">
+        {showUsers === true &&
+          users.map((data) => {
+            console.log(data.id);
+            return (
+              <Box
+                m={0}
+                borderWidth={1}
+                borderTopWidth={0}
+                p="1em"
+                key={data.id + nanoid()}
+              >
+                <h3 key={data.id + nanoid()}>Användar Id: {data.id}</h3>
+                <h3 key={data.id + nanoid()}>Användarnamn: {data.username}</h3>
+                <h3 key={data.id + nanoid()}>
+                  Namn: {data.name.firstname} {data.name.lastname}
+                </h3>
+                <h3 key={data.id + nanoid()}>E-post: {data.email}</h3>
+                <h3 key={data.id + nanoid()}>Telefonnummer: {data.phone}</h3>
+              </Box>
+            );
+          })}
+      </SimpleGrid>
     </Flex>
   );
 }

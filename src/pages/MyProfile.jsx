@@ -29,7 +29,7 @@ function MyProfile() {
     return <h3>Du har inte tillgång till den här sidan</h3>;
 
   return (
-    <Flex flexDirection="column">
+    <Flex maxW="60em" mr="auto" ml="auto" flexDirection="column">
       <Helmet>
         <title>Min profil - Tung Store</title>
       </Helmet>

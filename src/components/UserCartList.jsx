@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 import { products } from "../recoil/products/atom";
-import { Text, Flex, Heading, Box, Container } from "@chakra-ui/react";
+import { Text, Flex, Heading, Box, Container, SimpleGrid } from "@chakra-ui/react";
 
 function UserCartList() {
   const [showCarts, setShowCarts] = useState(false);
@@ -40,7 +40,6 @@ function UserCartList() {
           w="100%"
           alignSelf="start"
           borderWidth={1}
-          borderTopWidth={0}
           cursor="pointer"
           fontSize="xl"
           p="1.5em"
@@ -50,34 +49,42 @@ function UserCartList() {
           Visa en lista med användares varukorgar
         </Heading>
       )}
-      {showCarts === true &&
-        userCarts.map((data) => {
-          return (
-            <Container m={0} borderWidth={1} borderTopWidth={0} p="1em" key={data.id + nanoid()}>
-              <Text key={data.id + nanoid()}>Användar Id: {data.userId}</Text>
-              <Text key={data.id + nanoid()}>
-                Datum: {data.date.slice(0, 10)}
-              </Text>
-              <Text>Produkter i varukorgen:</Text>
+      <SimpleGrid minChildWidth="300px">
+        {showCarts === true &&
+          userCarts.map((data) => {
+            return (
+              <Box
+                m={0}
+                borderWidth={1}
+                borderTopWidth={0}
+                p="1em"
+                key={data.id + nanoid()}
+              >
+                <Text key={data.id + nanoid()}>Användar Id: {data.userId}</Text>
+                <Text key={data.id + nanoid()}>
+                  Datum: {data.date.slice(0, 10)}
+                </Text>
+                <Text key={data.id + nanoid()}>Produkter i varukorgen:</Text>
 
-              {data.products.map((product) => {
-                return (
-                  <Container _hover={{ color: "blue.500" }}>
-                    <Link
-                      key={product.productId + nanoid()}
-                      to={`/produkter/${product.productId}`}
-                    >
-                      {productsList[product.productId - 1].title}
-                    </Link>
-                    <Text key={product.productId + nanoid()}>
-                      Kvantitet: {product.quantity}
-                    </Text>
-                  </Container>
-                );
-              })}
-            </Container>
-          );
-        })}
+                {data.products.map((product) => {
+                  return (
+                    <Box key={data.id + nanoid()} ml={3} _hover={{ color: "blue.500" }}>
+                      <Link
+                        key={product.productId + nanoid()}
+                        to={`/produkter/${product.productId}`}
+                      >
+                        {productsList[product.productId - 1].title}
+                      </Link>
+                      <Text key={product.productId + nanoid()}>
+                        Kvantitet: {product.quantity}
+                      </Text>
+                    </Box>
+                  );
+                })}
+              </Box>
+            );
+          })}
+      </SimpleGrid>
     </Flex>
   );
 }

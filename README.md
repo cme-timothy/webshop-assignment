@@ -15,10 +15,8 @@ make more components in createaccount.
 
 ## Styling:
 
-products page.
 home page.
 cart page.
-admin panel page.
 admin product edit page
 product info page.
 
@@ -28,7 +26,6 @@ add maxwidth to header.
 logga ut menubar.
 add blue when hover on header menu links.
 footer.
-admin userlist and cartlist grid.
 
 ## Pre-requisites
 

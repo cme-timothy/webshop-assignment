@@ -4,7 +4,8 @@ import ProductLink from "../components/ProductLink";
 import { products } from "../recoil/products/atom";
 import { useRecoilState } from "recoil";
 import axios from "axios";
-import { Button } from '@chakra-ui/react'
+import { Button } from "@chakra-ui/react";
+import { SimpleGrid, Heading } from "@chakra-ui/react";
 
 function ProductList() {
   const [productsList, setProductsList] = useRecoilState(products);
@@ -40,18 +41,39 @@ function ProductList() {
       <Helmet>
         <title>Alla produkter - Tung Store</title>
       </Helmet>
-      <h3>Våra klipp</h3>
+      <Heading mt={4} mb={12}>
+        Våra klipp
+      </Heading>
+      <Heading size="l" mt={4}>
+        Filter:
+      </Heading>
       {categories.map((data) => {
         return (
-          <Button colorScheme='yellow' size='xs' key={data} onClick={() => filterCategories(data)}>
+          <Button
+            _focus={{ boxShadow: "none", bg: "yellow.500" }}
+            borderRadius={0}
+            colorScheme="yellow"
+            size="xs"
+            key={data}
+            onClick={() => filterCategories(data)}
+          >
             {data}
           </Button>
         );
       })}
-      <Button colorScheme='yellow' size='xs' onClick={filterAllProducts}>all</Button>
-      {productsList.map((data) => {
-        return <ProductLink key={data.id} data={data} />;
-      })}
+      <Button
+        borderRadius={0}
+        colorScheme="yellow"
+        size="xs"
+        onClick={filterAllProducts}
+      >
+        all
+      </Button>
+      <SimpleGrid mt="2em" mb="2em" align="center" minChildWidth="400px" spacing={1}>
+        {productsList.map((data) => {
+          return <ProductLink key={data.id} data={data} />;
+        })}
+      </SimpleGrid>
     </div>
   );
 }
