@@ -6,8 +6,6 @@ This is a simple webshop built for for my last react assignment. This project wa
 
 ## Logic:
 
-## Ask?
-
 ### Logic extra:
 
 more error handling.
