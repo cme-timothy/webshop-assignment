@@ -17,12 +17,11 @@ make more components in createaccount.
 
 home page.
 admin product edit page
-product info page.
 
 ### Styling extra:
 
 logga ut menubar.
-logo resize correct.
+logo and menu resize correct.
 add blue when hover on header menu links.
 footer.
 

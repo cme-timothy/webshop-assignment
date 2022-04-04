@@ -4,10 +4,7 @@ import {
   Text,
   Flex,
   Box,
-  Container,
   Button,
-  Image,
-  Input,
   Heading,
 } from "@chakra-ui/react";
 

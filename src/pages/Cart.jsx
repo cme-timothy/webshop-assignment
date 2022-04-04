@@ -3,7 +3,7 @@ import { useRecoilValue } from "recoil";
 import { productsInCart } from "../recoil/cart/atom";
 import CartList from "../components/CartList";
 import Checkout from "../components/Checkout";
-import { Flex, Heading, Container } from "@chakra-ui/react";
+import { Flex, Heading, Container, Text } from "@chakra-ui/react";
 
 function Cart() {
   const customerCart = useRecoilValue(productsInCart);
@@ -29,7 +29,7 @@ function Cart() {
           return <CartList key={data.id} data={data} />;
         })}
       </Flex>
-      {checkoutOn() ? <Checkout /> : <p>Det finns inget i varukorgen</p>}
+      {checkoutOn() ? <Checkout /> : <Text mb="1.3em">Det finns inget i varukorgen</Text>}
     </Container>
   );
 }

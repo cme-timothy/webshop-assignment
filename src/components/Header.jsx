@@ -95,7 +95,7 @@ function Header() {
         </Link>
       </Heading>
 
-      <Flex mr="1em" display={["none", "none", "none", "flex", "flex"]}>
+      <Flex mr="1em" display={["none", "none", "flex", "flex", "flex"]}>
         <HStack fontSize="lg" spacing={3} divider={<StackDivider />} as="nav">
           <Link pr="5em" to="/">
             Home
@@ -123,7 +123,7 @@ function Header() {
         mr="1em"
         icon={<HamburgerIcon w={12} h={12} color="blue.500" />}
         display={
-          menu === "none" ? ["flex", "flex", "flex", "none", "none"] : "none"
+          menu === "none" ? ["flex", "flex", "none", "none", "none"] : "none"
         }
       ></IconButton>
       <IconButton

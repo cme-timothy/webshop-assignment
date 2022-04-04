@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { Button } from '@chakra-ui/react'
+import { Button } from "@chakra-ui/react";
+import { Box, Text, Image, Heading } from "@chakra-ui/react";
 
 function ProductInfo() {
   const [cart, setCart] = useRecoilState(productsInCart);
@@ -79,19 +80,41 @@ function ProductInfo() {
   }
 
   return (
-    <div>
-      <img src={product.image} alt="" />
-      <h2>{product.title}</h2>
-      <p>{product.description}</p>
-      <p>{product.price} €</p>
-      <Button colorScheme="yellow" size="xs" onClick={add}>
-        {orderdToggle() ? (
+    <Box maxW="500px" h="270px" mr="auto" ml="auto">
+      <Image
+        w="300px"
+        h="auto"
+        p="1em"
+        ml="auto"
+        mr="auto"
+        pb={0}
+        src={product.image}
+        alt="produkt"
+      />
+      <Box p="3" mt="1em">
+        <Heading>{product.title}</Heading>
+        <Text>{product.description}</Text>
+        <Heading mt="1em" size="lg" align="center">
+          {product.price} €
+        </Heading>
+      </Box>
+
+      {orderdToggle() ? (
+        <Button
+          mb="2em"
+          w="100%"
+          colorScheme="yellow"
+          mt={4}
+          onClick={add}
+        >
           <Link to="/varukorg">Gå till varukorgen</Link>
-        ) : (
-          "Lägg i varukorgen"
-        )}
-      </Button>
-    </div>
+        </Button>
+      ) : (
+        <Button mb="2em" w="100%" colorScheme="blue" mt={4} onClick={add}>
+          Lägg i varukorgen"
+        </Button>
+      )}
+    </Box>
   );
 }
 

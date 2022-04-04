@@ -13,18 +13,18 @@ function ProductLink(props) {
           src={props.data.image}
           alt="produkter"
         />
-        <Container
-          m={0}
-          p="0.5em"
-          color="blue.500"
-          _hover={{ color: "blue.700" }}
-        >
-          <Link key={props.data.id} to={`/produkter/${props.data.id}`}>
-            {props.data.title}
-          </Link>
-        </Container>
-        <Text>{props.data.price} €</Text>
       </Link>
+      <Container
+        m={0}
+        p="0.5em"
+        color="blue.500"
+        _hover={{ color: "blue.700" }}
+      >
+        <Link key={props.data.id} to={`/produkter/${props.data.id}`}>
+          {props.data.title}
+        </Link>
+      </Container>
+      <Text>{props.data.price} €</Text>
     </Box>
   );
 }

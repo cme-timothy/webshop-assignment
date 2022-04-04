@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { auth } from "../recoil/auth/atom";
 import { useRecoilValue } from "recoil";
-import { Button } from '@chakra-ui/react'
+import { Button } from "@chakra-ui/react";
+import { Box, Text, Image, Heading } from "@chakra-ui/react";
 
 function EditProductDetails() {
   const [product, setProduct] = useState([]);

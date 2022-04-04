@@ -75,12 +75,9 @@ function ProductListAdmin() {
                 </Link>
               </Container>
               <Button
-                _hover={{ bg: "yellow.400" }}
                 p="1em"
                 m="0.5em 1em 0.5em 0"
-                bg="yellow.300"
-                _focus={{ boxShadow: "none" }}
-                variant="unstyled"
+                colorScheme="yellow"
                 size="xl"
                 onClick={() => deleteOnClick(data.id)}
                 key={data.id + nanoid()}
